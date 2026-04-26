@@ -3,9 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kusco-Murphy</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Products.html">Shop</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+
+            <div>
+                <a href="index.html">
+                    Kusco-Murphy
+                </a>
+            </div>
+
+            <ul>
+                <li><a href="Products.html" aria-label="Search products">Search</a></li>
+                <li><a href="Shopping Cart.html" aria-label="Shopping cart">Cart</a></li>
+                <li><a href="Account.html" aria-label="Account">Account</a></li>
+            </ul>
+        </nav>
+    </header>
     
+    <main>
+        <section class="hero">
+            <h1>
+                Kusco-Murphy<br>
+                Haircare Products
+            </h1>
+
+            <p>Indulgence Simplified</p>
+
+            <a href="products.html" class="primary-button">
+                Shop Now
+            </a>
+        </section>
+
+        <section class="brand-strip">
+            <p>
+                Indulgence Simplified · Salon Quality Haircare · Professional Results at Home ·
+                Elevated Everyday Haircare · Luxury You Can Feel
+            </p>
+        </section>
+
+        <section class="category-section">
+            <h2>Shop by category</h2>
+
+            <ul class="category-list">
+                <li>
+                    <a href="Shampoo.html" class="category-card">
+                    <figure>
+                        <img src="images/shampoo.png" alt="Shampoo products">
+                        <figcaption>Shampoo</figcaption>
+                    </figure>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Conditioner.html" class="category-card">
+                    <figure>
+                        <img src="images/conditioner.png" alt="Conditioner products">
+                        <figcaption>Conditioner</figcaption>
+                    </figure>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Styling.html" class="category-card">
+                    <figure>
+                        <img src="images/styling.png" alt="Styling products">
+                        <figcaption>Styling</figcaption>
+                    </figure>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Treatments.html" class="category-card">
+                    <figure>
+                        <img src="images/treatments.png" alt="Hair treatments">
+                        <figcaption>Treatments</figcaption>
+                    </figure>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Tools.html" class="category-card">
+                    <figure>
+                        <img src="images/tools.png" alt="Hair tools">
+                        <figcaption>Hair Tools</figcaption>
+                    </figure>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="popular-section">
+            <h2>Most Popular</h2>
+              
+            <div class="carousel-container">
+                <button class="carousel-arrow previous" aria-label="Previous products">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M16 4 L8 12 L16 20" stroke="black" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+
+                <ul class="product-carousel" id="popularCarousel">
+                    <li>
+                        <article class="carousel-card">
+                        <a href="O'ssential Hair Wash.html">
+                            <figure>
+                                <img src="images/essential-hair-wash.jpg" alt="O'ssential Hair Wash">
+                                <figcaption>O'ssential Hair Wash</figcaption>
+                            </figure>
+                        </a>
+                        <p class="price">$25.95</p>
+                        <button type="button" class="add-to-cart">Add to Cart</button>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="carousel-card">
+                        <a href="O'ssential Hair Rinse.html">
+                            <figure>
+                                <img src="images/essential-hair-rinse.jpg" alt="O'ssential Hair Rinse">
+                                <figcaption>O'ssential Hair Rinse</figcaption>
+                            </figure>
+                        </a>
+                        <p class="price">$25.95</p>
+                        <button type="button" class="add-to-cart">Add to Cart</button>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="carousel-card">
+                        <a href="Beach Hair Wash.html">
+                            <figure>
+                                <img src="images/beach-hair-wash.jpg" alt="Beach Hair Wash">
+                                <figcaption>Beach Hair Wash</figcaption>
+                            </figure>
+                        </a>
+                        <p class="price">$25.95</p>
+                        <button type="button" class="add-to-cart">Add to Cart</button>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="carousel-card">
+                        <a href="Beach Hair Rinse.html">
+                            <figure>
+                                <img src="images/beach-hair-rinse.jpg" alt="Beach Hair Rinse">
+                                <figcaption>Beach Hair Rinse</figcaption>
+                            </figure>
+                        </a>
+                        <p class="price">$25.95</p>
+                        <button type="button" class="add-to-cart">Add to Cart</button>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article class="carousel-card">
+                        <a href="Dry Leave In.html">
+                            <figure>
+                                <img src="images/super-shine.jpg" alt="Dry Leave In">
+                                <figcaption>Dry Leave In</figcaption>
+                            </figure>
+                        </a>
+                        <p class="price">$24.95</p>
+                        <button type="button" class="add-to-cart">Add to Cart</button>
+                        </article>
+                    </li>
+                </ul>
+
+                <button class="carousel-arrow next" aria-label="Next products">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M8 4 L16 12 L8 20" stroke="black" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>About Kusco-Murphy</h2>
+
+            <article class="about-card-1">
+                <div class="about-text">
+                    <h3 id="about-quality-title">Premium haircare products delivering exceptional results</h3>
+                    <p>
+                        We combine years of expertise in the industry together with a passion for creating the best haircare products, that nourish, protect, and enhance the natural beauty of your hair.
+                    </p>
+                    <p>
+                        Kusco-Murphy combines professional performance with thoughtful formulations, delivering high-quality haircare while remaining committed to sustainability and ethical practices.
+                    </p>
+                </div>
+
+                <figure class="about-image">
+                    <img src="images/about-1.jpg" alt="Model with styled curly hair">
+                </figure>
+            </article>
+
+            <article class="about-card-2">
+                <div class="about-text">
+                    <h3 id="about-salon-title">With a reputation for salon quality haircare products to your home</h3>
+                    <p>
+                        Our brand uses botanical extracts, essential oils and plant-based proteins that are gentle on the hair and scalp while delivering effective results. Whether your hair needs hydration, volume, or everyday care, Kusco-Murphy offers solutions to suit your needs.
+                    </p>
+                    <p>
+                        All things considered, we are a proudly Australian owned small business. Supplying locally manufactured hair products since 1995.
+                    </p>
+                </div>
+
+                <figure class="about-image">
+                    <img src="images/about-2.jpg" alt="Kusco-Murphy products displayed together">
+                </figure>
+            </article>
+
+            <article class="about-card-3">
+                <div class="about-text">
+                    <h3 id="about-simple-title">The most beautiful things in life are simple pleasures</h3>
+                    <p>
+                        While producing the Kusco-Murphy Hair Collection, simplicity was always a priority. Our Collections have been created with you in mind. Exotic combinations of essential oils , vitamins and minerals to gently cleanse, condition and prep your hair for the ultimate styling experience. SLES , SLS and Sulphate free for all our Washes & Rinses. Kusco-Murphy opposes animal testing.
+                    </p>
+                    <p>
+                        Simply: The Kusco-Murphy experience embodies the essence of nature, Australian style.
+                    </p>
+                    <p>
+                        Kerry - Anne Rooke<br>Kusco - Murphy
+                    </p>
+                </div>
+
+                <figure class="about-image">
+                    <img src="images/about-3.jpg" alt="Kusco-Murphy haircare campaign image">
+                </figure>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer-column" aria-labelledby="footer-shop">
+            <h4>Shop</h4>
+            <ul>
+                <li><a href="#">Shampoo</a></li>
+                <li><a href="#">Conditioner</a></li>
+                <li><a href="#">Styling</a></li>
+                <li><a href="#">Treatments</a></li>
+                <li><a href="#">Hair Tools</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-column" aria-labelledby="footer-learn">
+            <h4>Learn</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-column" aria-labelledby="footer-care">
+            <h4>Customer Care</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-brand">
+            <h3>Kusco-Murphy</h3>
+            <p>Melbourne, Australia</p>
+            <p>enquiries@kuscomurphy.com.au</p>
+            <p>© Kusco Murphy International Products Pty Ltd</p>
+        </section>
+    </footer>
 </body>
 </html>
