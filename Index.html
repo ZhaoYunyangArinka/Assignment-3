@@ -4,27 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kusco-Murphy</title>
-</head>
+    <link rel="stylesheet" href="Global.css">
+    <link rel="stylesheet" href="Index.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Cinzel+Decorative:wght@400;700;900&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kurale&family=Marcellus&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <body>
-    <header>
+    <header class="header-home">
+        <section class="brand-bar">
+            <a href="index.html" class="brand">Kusco-Murphy</a>
+        </section>
+
         <nav>
-            <ul>
+            <ul class="nav-icons-left">
+                <li>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24" class="account">
+                            <circle cx="12" cy="8" r="4" fill="none" stroke-width="1.5"/>
+                            <path d="M4 20c2-7 14-7 16 0" fill="none" stroke-width="1.5"/>
+                        </svg>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24" class="search">
+                            <circle cx="11" cy="11" r="7" fill="none" stroke-width="1.5"/>
+                            <line x1="16" y1="16" x2="22" y2="22" stroke-width="2"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav-links">
                 <li><a href="Products.html">Shop</a></li>
                 <li><a href="Blog.html">Blog</a></li>
                 <li><a href="About.html">About Us</a></li>
                 <li><a href="Contact.html">Contact Us</a></li>
             </ul>
 
-            <div>
-                <a href="index.html">
-                    Kusco-Murphy
-                </a>
-            </div>
-
-            <ul>
-                <li><a href="Products.html" aria-label="Search products">Search</a></li>
-                <li><a href="Shopping Cart.html" aria-label="Shopping cart">Cart</a></li>
-                <li><a href="Account.html" aria-label="Account">Account</a></li>
+            <ul class="nav-icons-right">
+                <li>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24" class="cart">
+                            <path d="M3 4h3l2.2 11h9.8l2-8H7.2"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                            <circle cx="9" cy="20" r="1.6"/>
+                            <circle cx="17" cy="20" r="1.6"/>
+                        </svg>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -38,16 +70,39 @@
 
             <p>Indulgence Simplified</p>
 
-            <a href="products.html" class="primary-button">
+            <a href="Products.html" class="primary-button">
                 Shop Now
             </a>
         </section>
 
         <section class="brand-strip">
-            <p>
-                Indulgence Simplified · Salon Quality Haircare · Professional Results at Home ·
-                Elevated Everyday Haircare · Luxury You Can Feel
-            </p>
+            <div class="brand-track">
+                <div class="brand-group">
+                    <p>Indulgence Simplified</p>
+                    <p>Salon Quality Haircare</p>
+                    <p>Professional Results at Home</p>
+                    <p>Elevated Everyday Haircare</p>
+                    <p>Luxury You Can Feel</p>
+                    <p>Indulgence Simplified</p>
+                    <p>Salon Quality Haircare</p>
+                    <p>Professional Results at Home</p>
+                    <p>Elevated Everyday Haircare</p>
+                    <p>Luxury You Can Feel</p>
+                </div>
+
+                <div class="brand-group" aria-hidden="true">
+                    <p>Indulgence Simplified</p>
+                    <p>Salon Quality Haircare</p>
+                    <p>Professional Results at Home</p>
+                    <p>Elevated Everyday Haircare</p>
+                    <p>Luxury You Can Feel</p>
+                    <p>Indulgence Simplified</p>
+                    <p>Salon Quality Haircare</p>
+                    <p>Professional Results at Home</p>
+                    <p>Elevated Everyday Haircare</p>
+                    <p>Luxury You Can Feel</p>
+                </div>
+            </div>
         </section>
 
         <section class="category-section">
@@ -57,7 +112,7 @@
                 <li>
                     <a href="Shampoo.html" class="category-card">
                     <figure>
-                        <img src="images/shampoo.png" alt="Shampoo products">
+                        <img src="images/Index/shampoo.png" alt="Shampoo products">
                         <figcaption>Shampoo</figcaption>
                     </figure>
                     </a>
@@ -66,7 +121,7 @@
                 <li>
                     <a href="Conditioner.html" class="category-card">
                     <figure>
-                        <img src="images/conditioner.png" alt="Conditioner products">
+                        <img src="images/Index/conditioner.png" alt="Conditioner products">
                         <figcaption>Conditioner</figcaption>
                     </figure>
                     </a>
@@ -75,7 +130,7 @@
                 <li>
                     <a href="Styling.html" class="category-card">
                     <figure>
-                        <img src="images/styling.png" alt="Styling products">
+                        <img src="images/Index/styling.png" alt="Styling products">
                         <figcaption>Styling</figcaption>
                     </figure>
                     </a>
@@ -84,7 +139,7 @@
                 <li>
                     <a href="Treatments.html" class="category-card">
                     <figure>
-                        <img src="images/treatments.png" alt="Hair treatments">
+                        <img src="images/Index/treatments.png" alt="Hair treatments">
                         <figcaption>Treatments</figcaption>
                     </figure>
                     </a>
@@ -93,7 +148,7 @@
                 <li>
                     <a href="Tools.html" class="category-card">
                     <figure>
-                        <img src="images/tools.png" alt="Hair tools">
+                        <img src="images/Index/tools.png" alt="Hair tools">
                         <figcaption>Hair Tools</figcaption>
                     </figure>
                     </a>
@@ -105,10 +160,8 @@
             <h2>Most Popular</h2>
               
             <div class="carousel-container">
-                <button class="carousel-arrow previous" aria-label="Previous products">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M16 4 L8 12 L16 20" stroke="black" stroke-width="2" fill="none"/>
-                    </svg>
+                <button type="button" id="prevBtn">
+                    ←
                 </button>
 
                 <ul class="product-carousel" id="popularCarousel">
@@ -116,7 +169,7 @@
                         <article class="carousel-card">
                         <a href="O'ssential Hair Wash.html">
                             <figure>
-                                <img src="images/essential-hair-wash.jpg" alt="O'ssential Hair Wash">
+                                <img src="images/products/O'ssential Hair Wash/1.jpg" alt="O'ssential Hair Wash">
                                 <figcaption>O'ssential Hair Wash</figcaption>
                             </figure>
                         </a>
@@ -129,7 +182,7 @@
                         <article class="carousel-card">
                         <a href="O'ssential Hair Rinse.html">
                             <figure>
-                                <img src="images/essential-hair-rinse.jpg" alt="O'ssential Hair Rinse">
+                                <img src="images/products/O'ssential Hair Rinse/1.jpg" alt="O'ssential Hair Rinse">
                                 <figcaption>O'ssential Hair Rinse</figcaption>
                             </figure>
                         </a>
@@ -142,7 +195,7 @@
                         <article class="carousel-card">
                         <a href="Beach Hair Wash.html">
                             <figure>
-                                <img src="images/beach-hair-wash.jpg" alt="Beach Hair Wash">
+                                <img src="images/products/Beach Hair Wash/1.jpg" alt="Beach Hair Wash">
                                 <figcaption>Beach Hair Wash</figcaption>
                             </figure>
                         </a>
@@ -155,7 +208,7 @@
                         <article class="carousel-card">
                         <a href="Beach Hair Rinse.html">
                             <figure>
-                                <img src="images/beach-hair-rinse.jpg" alt="Beach Hair Rinse">
+                                <img src="images/products/Beach Hair Rinse/1.jpg" alt="Beach Hair Rinse">
                                 <figcaption>Beach Hair Rinse</figcaption>
                             </figure>
                         </a>
@@ -168,7 +221,7 @@
                         <article class="carousel-card">
                         <a href="Dry Leave In.html">
                             <figure>
-                                <img src="images/super-shine.jpg" alt="Dry Leave In">
+                                <img src="images/products/Dry Leave In/1.jpg" alt="Dry Leave In">
                                 <figcaption>Dry Leave In</figcaption>
                             </figure>
                         </a>
@@ -178,17 +231,13 @@
                     </li>
                 </ul>
 
-                <button class="carousel-arrow next" aria-label="Next products">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M8 4 L16 12 L8 20" stroke="black" stroke-width="2" fill="none"/>
-                    </svg>
+                <button type="button" id="nextBtn">
+                    →
                 </button>
             </div>
         </section>
 
         <section class="about-section">
-            <h2>About Kusco-Murphy</h2>
-
             <article class="about-card-1">
                 <div class="about-text">
                     <h3 id="about-quality-title">Premium haircare products delivering exceptional results</h3>
@@ -201,7 +250,7 @@
                 </div>
 
                 <figure class="about-image">
-                    <img src="images/about-1.jpg" alt="Model with styled curly hair">
+                    <img src="images/Index/about1.jpg" alt="Model with styled curly hair">
                 </figure>
             </article>
 
@@ -217,7 +266,7 @@
                 </div>
 
                 <figure class="about-image">
-                    <img src="images/about-2.jpg" alt="Kusco-Murphy products displayed together">
+                    <img src="images/Index/about2.jpg" alt="Kusco-Murphy products displayed together">
                 </figure>
             </article>
 
@@ -231,12 +280,12 @@
                         Simply: The Kusco-Murphy experience embodies the essence of nature, Australian style.
                     </p>
                     <p>
-                        Kerry - Anne Rooke<br>Kusco - Murphy
+                        <em>Kerry - Anne Rooke</em><br>Kusco - Murphy
                     </p>
                 </div>
 
                 <figure class="about-image">
-                    <img src="images/about-3.jpg" alt="Kusco-Murphy haircare campaign image">
+                    <img src="images/Index/about3.jpg" alt="Kusco-Murphy haircare campaign image">
                 </figure>
             </article>
         </section>
@@ -271,10 +320,11 @@
 
         <section class="footer-brand">
             <h3>Kusco-Murphy</h3>
-            <p>Melbourne, Australia</p>
-            <p>enquiries@kuscomurphy.com.au</p>
-            <p>© Kusco Murphy International Products Pty Ltd</p>
+            <p id="location">Melbourne, Australia</p>
+            <p id="email">enquiries@kuscomurphy.com.au</p>
+            <p id="company">© Kusco Murphy International Products Pty Ltd</p>
         </section>
     </footer>
+    <script src="Index.js"></script>
 </body>
 </html>
