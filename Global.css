@@ -30,7 +30,7 @@ button {
   cursor: pointer;
 }
 
-/* —————————— Typography —————————— */
+/* ———————————————————— Typography ———————————————————— */
 h1 {
   font-family: "Cinzel Decorative", serif;
   font-weight: 700;
@@ -73,7 +73,143 @@ p {
   font-size: 1vw;
 }
 
-/* —————————— Footer —————————— */
+/* ———————————————————— Header ———————————————————— */
+header {
+  height: 7.7vw;
+  color: #FCFBFB;
+  background-color: #57453A;
+  box-shadow: 0 0.18vw 0.45vw rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+header .brand-bar {
+  height: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .brand {
+  display: flex;
+  align-items: center;
+  position: static;
+  transform: none;
+  font-family: "Martel Sans", sans-serif;
+  font-weight: 900;
+  font-size: 1.6vw;
+  letter-spacing: 0.06vw;
+  color: #FCFBFB;
+}
+
+header nav {
+  position: relative;
+  min-height: 0;
+  height: 4.2vw;
+  padding: 0 8.8vw;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-content: initial;
+  color: #FCFBFB;
+}
+
+/* The thin line between brand-bar and nav */
+header nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8.8vw;
+  right: 8.8vw;
+  height: 0.06vw;
+  background-color: rgb(234, 213, 193);
+  opacity: 1;
+}
+
+/* Account icon + Search icon */
+header .nav-icons-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.3vw;
+}
+
+/* Middle text navigation */
+header .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4vw;
+}
+
+header .nav-links a {
+  height: 3.2vw;
+  min-width: 5.8vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fraunces", serif;
+  font-size: 1.05vw;
+  font-weight: 500;
+  text-decoration: none;
+  text-underline-offset: 0.5vw;
+  text-decoration-thickness: 0.12vw;
+  transition: font-weight 0.2s ease;
+}
+
+/* When hovering, the text is bold and underlined. */
+header .nav-links li:hover a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 0.12vw;
+  -webkit-text-stroke: 0.02vw #FCFBFB;
+}
+
+/* Cart icon */
+header .nav-icons-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Cart wheels filled up */
+header .nav-icons-right svg.cart circle {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Icon click area */
+header.nav-icons-left a,
+header .nav-icons-right a {
+  width: 2.4vw;
+  height: 3.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon size */
+header .nav-icons-left svg,
+header .nav-icons-right svg {
+  width: 1.75vw;
+  height: 1.75vw;
+}
+
+/* All icon lines follow the current text color. */
+header .nav-icons-left svg path,
+header .nav-icons-left svg line,
+header .nav-icons-left svg circle,
+header .nav-icons-right svg path,
+header .nav-icons-right svg line,
+header .nav-icons-right svg circle {
+  stroke: currentColor;
+  fill: none;
+}
+
+/* ———————————————————— Footer ———————————————————— */
 footer {
   background-color: #5a4538;
   color: #FCFBFB;
