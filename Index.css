@@ -332,10 +332,35 @@
   overflow: hidden;
 }
 
-.carousel-card img {
+.product-image {
+  position: relative;
   width: 100%;
-  height: 15.2vw;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0.2vw;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+
+/* Image Hover */
+.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.product-image:hover .hover-img {
+  opacity: 1;
+}
+
+.product-image:hover .primary-img {
+  opacity: 0;
 }
 
 .carousel-card figcaption {
@@ -357,17 +382,33 @@
 
 .add-to-cart {
   width: 100%;
+  height: 1.8vw;
   border: none;
   border-radius: 0.25vw;
   background-color: #ebd6c8;
   color: #332D29;
-  padding: 0.42vw 0;
+  padding: 0;
   font-size: 0.75vw;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-to-cart:hover {
   background-color: #E2C4AD;
+}
+
+.add-to-cart.added {
+  background-color: #E2C4AD;
+  color: #332D29;
+  gap: 0.5vw;
+}
+
+.added-check {
+  width: 0.9vw;
+  height: 0.9vw;
+  flex-shrink: 0;
 }
 
 /* Carousel positioning system */
@@ -402,29 +443,45 @@
   z-index: 1;
 }
 
-#prevBtn,
-#nextBtn {
+/* Arrow */
+.recommend-prev svg,
+.recommend-next svg {
+  width: 1.6vw;
+  height: 1.6vw;
+}
+
+.recommend-prev,
+.recommend-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 2.6vw;
+  height: 2.6vw;
+  border-radius: 50%;
   border: none;
-  background: none;
-  color: #332D29;
-  font-size: 1.8vw;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #FFF7F1;
+  background-color: #A88571;
   z-index: 10;
 }
 
-#prevBtn {
-  left: 6.5vw;
+.recommend-prev {
+  left: 4.5vw;
 }
 
-#nextBtn {
-  right: 6.5vw;
+.recommend-next {
+  right: 4.5vw;
 }
 
-#prevBtn:hover,
-#nextBtn:hover {
-  transform: translateY(-50%) scale(1.15);
+.recommend-prev:hover,
+.recommend-next:hover {
+  transform: translateY(-50%) scale(1.08);
+  background-color: #9A7A67;
 }
 
 /* ———————————————————— About ———————————————————— */
@@ -432,7 +489,7 @@
 .about-card-1,
 .about-card-3 {
   display: grid;
-  grid-template-columns: 56vw 1fr;
+  grid-template-columns: 60vw 1fr;
   height: 32vw;
   margin-bottom: 5vw;
   overflow: hidden;
@@ -441,7 +498,7 @@
 
 .about-card-2{
   display: grid;
-  grid-template-columns: 1fr 56vw;
+  grid-template-columns: 1fr 60vw;
   height: 32vw;
   margin-bottom: 6vw;
   overflow: hidden;
@@ -449,11 +506,11 @@
 }
 
 .about-card-1 {
-  height: 26vw;
+  height: 32vw;
 }
 
 .about-card-2 {
-  height: 26vw;
+  height: 32vw;
 }
 
 .about-card-3 {
@@ -463,7 +520,7 @@
 
 .about-image {
   grid-area: image;
-  width: 56vw;
+  width: 60vw;
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -484,7 +541,7 @@
 }
 
 .about-card-2 .about-text{
-    text-align: right;
+    text-align: left;
     padding: 0vw 4vw 0vw 8vw;
 }
 

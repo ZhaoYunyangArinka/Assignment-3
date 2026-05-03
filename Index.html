@@ -9,8 +9,7 @@
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Cinzel+Decorative:wght@400;700;900&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kurale&family=Marcellus&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Cinzel+Decorative:wght@400;700;900&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kurale&family=Marcellus&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Reddit+Sans+Condensed:wght@200..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <body>
     <header class="header-home">
         <section class="brand-bar">
@@ -161,8 +160,10 @@
             <h2>Most Popular</h2>
               
             <div class="carousel-container">
-                <button type="button" id="prevBtn">
-                    ←
+                <button class="recommend-prev">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="15 6 9 12 15 18" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
                 </button>
 
                 <ul class="product-carousel" id="popularCarousel">
@@ -170,7 +171,10 @@
                         <article class="carousel-card">
                         <a href="O'ssential Hair Wash.html">
                             <figure>
-                                <img src="images/products/O'ssential Hair Wash/1.jpg" alt="O'ssential Hair Wash">
+                                <div class="product-image">
+                                    <img class="primary-img" src="images/products/O'ssential Hair Wash/1.jpg" alt="O'ssential Hair Wash">
+                                    <img class="hover-img" src="images/products/O'ssential Hair Wash/2.jpg" alt="O'ssential Hair Wash">
+                                </div>
                                 <figcaption>O'ssential Hair Wash</figcaption>
                             </figure>
                         </a>
@@ -183,7 +187,10 @@
                         <article class="carousel-card">
                         <a href="O'ssential Hair Rinse.html">
                             <figure>
-                                <img src="images/products/O'ssential Hair Rinse/1.jpg" alt="O'ssential Hair Rinse">
+                                <div class="product-image">
+                                    <img class="primary-img" src="images/products/O'ssential Hair Rinse/1.jpg" alt="O'ssential Hair Rinse">
+                                    <img class="hover-img" src="images/products/O'ssential Hair Rinse/2.jpg" alt="O'ssential Hair Rinse">
+                                </div>
                                 <figcaption>O'ssential Hair Rinse</figcaption>
                             </figure>
                         </a>
@@ -196,7 +203,10 @@
                         <article class="carousel-card">
                         <a href="Beach Hair Wash.html">
                             <figure>
-                                <img src="images/products/Beach Hair Wash/1.jpg" alt="Beach Hair Wash">
+                                <div class="product-image">
+                                    <img class="primary-img" src="images/products/Beach Hair Wash/1.jpg" alt="Beach Hair Wash">
+                                    <img class="hover-img" src="images/products/Beach Hair Wash/2.jpg" alt="Beach Hair Wash">
+                                </div>
                                 <figcaption>Beach Hair Wash</figcaption>
                             </figure>
                         </a>
@@ -209,7 +219,10 @@
                         <article class="carousel-card">
                         <a href="Beach Hair Rinse.html">
                             <figure>
-                                <img src="images/products/Beach Hair Rinse/1.jpg" alt="Beach Hair Rinse">
+                                <div class="product-image">
+                                    <img class="primary-img" src="images/products/Beach Hair Rinse/1.jpg" alt="Beach Hair Rinse">
+                                    <img class="hover-img" src="images/products/Beach Hair Rinse/2.jpg" alt="Beach Hair Rinse">
+                                </div>
                                 <figcaption>Beach Hair Rinse</figcaption>
                             </figure>
                         </a>
@@ -222,7 +235,10 @@
                         <article class="carousel-card">
                         <a href="Dry Leave In.html">
                             <figure>
-                                <img src="images/products/Dry Leave In/1.jpg" alt="Dry Leave In">
+                                <div class="product-image">
+                                    <img class="primary-img" src="images/products/Dry Leave In/1.jpg" alt="Dry Leave In">
+                                    <img class="hover-img" src="images/products/Dry Leave In/2.jpg" alt="Dry Leave In">
+                                </div>
                                 <figcaption>Dry Leave In</figcaption>
                             </figure>
                         </a>
@@ -232,8 +248,10 @@
                     </li>
                 </ul>
 
-                <button type="button" id="nextBtn">
-                    →
+                <button class="recommend-next">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="9 6 15 12 9 18" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
                 </button>
             </div>
         </section>
@@ -326,6 +344,6 @@
             <p id="company">© Kusco Murphy International Products Pty Ltd</p>
         </section>
     </footer>
-    <script src="all.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

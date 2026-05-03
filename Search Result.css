@@ -1,0 +1,361 @@
+main {
+  padding: 9vw 8.8vw 4vw;
+}
+
+/* ———————————————————— Breadcrumb ———————————————————— */
+.breadcrumb {
+  font-family: "Reddit Sans Condensed", sans-serif;
+  font-size: 0.9vw;
+  margin-bottom: 1.2vw;
+  padding-bottom: 1vw;
+  border-bottom: 0.07vw solid rgb(226, 210, 201);
+  color: #6E5A48;
+}
+
+.breadcrumb a {
+  color: #6E5A48;
+}
+
+.breadcrumb span {
+  margin-left: 0.6vw;
+}
+
+.breadcrumb span:last-child {
+  color: #57453A;
+  font-weight: 600;
+}
+
+/* ———————————————————— Search Header ———————————————————— */
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6vw 0 1vw;
+}
+
+.search-header h2 {
+  font-size: 1.6vw;
+  text-align: left;
+  margin: 0;
+  color: #4A433D;
+}
+
+.search-header h2 em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+}
+
+.tabs a {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 1.45vw;
+  text-transform: uppercase;
+  color: #4A433D;
+  padding-bottom: 0.2vw;
+}
+
+.tabs a.active {
+  font-weight: 600;
+  border-bottom: 0.16vw solid #4A433D;
+}
+
+/* ———————————————————— Sort Box ———————————————————— */
+.sort-row {
+  margin-top: 1vw;
+  margin-bottom: 2.2vw;
+}
+
+.sort-box {
+  position: relative;
+  width: 11vw;
+  height: 2.5vw;
+  border: 0.07vw solid rgb(226, 210, 201);
+  background-color: #FFF7F1;
+  z-index: 200;
+}
+
+.sort-box:hover {
+  border-color: #4A433D;
+  box-shadow: 0 0 0 0.03vw #4A433D;
+}
+
+/* label */
+.sort-label {
+  position: absolute;
+  top: -0.9vw;
+  left: 0.9vw;
+  padding: 0 0.4vw;
+  background-color: #FFF7F1;
+  font-family: "Marcellus", serif;
+  font-size: 0.9vw;
+  color: rgb(137, 119, 108);
+}
+
+.sort-selected {
+  width: 100%;
+  height: 100%;
+  padding: 0 2.5vw 0 1.3vw;
+  border: none;
+  background: transparent;
+  font-family: "Marcellus", serif;
+  font-size: 1vw;
+  color: #4A433D;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* arrow */
+.sort-box::after {
+  content: "";
+  position: absolute;
+  right: 1vw;
+  top: 50%;
+  width: 0.45vw;
+  height: 0.45vw;
+  border-right: 0.15vw solid #4A433D;
+  border-bottom: 0.15vw solid #4A433D;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* drop-down list */
+.sort-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -0.07vw;
+  width: calc(100% + 0.14vw);
+  background-color: #FFF7F1;
+  border: 0.07vw solid #4A433D;
+  box-shadow: 0 0 0 0.03vw #4A433D;
+  border-top: none;
+  z-index: 300;
+}
+
+/* drop-down list: active */
+.sort-box.active .sort-options {
+  display: block;
+}
+
+/* option */
+.sort-options li {
+  font-family: "Marcellus", serif;
+  font-size: 0.9vw;
+  padding: 0.6vw 1.3vw;
+  color: #4A433D;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sort-options li:hover {
+  background-color: #EFDFD4;
+}
+
+/* ———————————————————— Card ———————————————————— */
+.product-card {
+  width: 100%;
+}
+
+.product-card figure {
+  margin: 0;
+}
+
+.product-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0.2vw;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+
+/* Image Hover */
+.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.product-image:hover .hover-img {
+  opacity: 1;
+}
+
+.product-image:hover .primary-img {
+  opacity: 0;
+}
+
+/* Title */
+.product-card figcaption{
+  font-family: "Fraunces", serif;
+  font-size: 1.35vw;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: left;
+  color: #4A433D;
+  margin-top: 1vw;
+}
+
+/* Size */
+.product-card .size {
+  font-family: "Marcellus", serif;
+  font-size: 0.9vw;
+  color: #4A433D;
+  margin-top: 0.2vw;
+}
+
+/* Price */
+.product-card .price {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.45vw;
+  font-weight: 600;
+  color: #4A433D;
+  margin-top: 1.8vw;
+  margin-bottom: 0.55vw;
+}
+
+.product-card .price span {
+  font-family: "Reddit Sans Condensed", sans-serif;
+  font-size: 0.65vw;
+  font-weight: 400;
+  margin-left: 0.25vw;
+}
+
+/* Buttons */
+.add-to-cart,
+.out-of-stock {
+  font-family: "Fraunces", serif;
+  font-size: 1vw;
+  width: 100%;
+  height: 2.2vw;
+  border: none;
+  border-radius: 0.2vw;
+  font-family: "Fraunces", serif;
+  font-size: 1vw;
+  text-transform: uppercase;
+}
+
+.add-to-cart {
+  background-color: #EFDFD4;
+  color: #332D29;
+  transition: background 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #E2C4AD;
+}
+
+.add-to-cart.added {
+  background-color: #E2C4AD;
+  color: #332D29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7vw;
+}
+
+.added-check {
+  width: 1.1vw;
+  height: 1.1vw;
+}
+
+.out-of-stock {
+  background-color: rgba(242, 231, 224, 0.6);
+  color: rgba(51, 45, 41, 0.6);
+  cursor: not-allowed;
+}
+
+/* ———————————————————— Product ———————————————————— */
+.product-section{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5vw;
+  row-gap: 4vw;
+}
+
+/* ———————————————————— Recommendation ———————————————————— */
+.recommend-section {
+  margin-top: 4.5vw;
+}
+
+.recommend-section > h2 {
+  font-size: 1.9vw;
+  text-align: left;
+  margin-bottom: 1.5vw;
+}
+
+.recommend {
+  position: relative;
+  overflow: visible;
+}
+
+.recommend-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Only three items are exposed */
+.recommend-products {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 10vw) / 3);
+  column-gap: 5vw;
+  transition: transform 0.45s ease;
+}
+
+/* Arrow */
+.recommend-prev svg,
+.recommend-next svg {
+  width: 1.6vw;
+  height: 1.6vw;
+}
+
+.recommend-prev,
+.recommend-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.6vw;
+  height: 2.6vw;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #FFF7F1;
+  background-color: #A88571;
+  z-index: 10;
+}
+
+.recommend-prev {
+  left: -4.5vw;
+}
+
+.recommend-next {
+  right: -4.5vw;
+}
+
+.recommend-prev:hover,
+.recommend-next:hover {
+  transform: translateY(-50%) scale(1.08);
+  background-color: #9A7A67;
+}
