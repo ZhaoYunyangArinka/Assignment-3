@@ -2,29 +2,6 @@ main {
   padding: 9vw 8.8vw 4vw;
 }
 
-/* ———————————————————— Breadcrumb ———————————————————— */
-.breadcrumb {
-  font-family: "Reddit Sans Condensed", sans-serif;
-  font-size: 0.9vw;
-  margin-bottom: 1.2vw;
-  padding-bottom: 1vw;
-  border-bottom: 0.07vw solid rgb(226, 210, 201);
-  color: #6E5A48;
-}
-
-.breadcrumb a {
-  color: #6E5A48;
-}
-
-.breadcrumb span {
-  margin-left: 0.6vw;
-}
-
-.breadcrumb span:last-child {
-  color: #57453A;
-  font-weight: 600;
-}
-
 /* ———————————————————— Search Header ———————————————————— */
 .search-header {
   display: flex;
