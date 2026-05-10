@@ -30,17 +30,21 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <button type="button" class="search-trigger">
                         <svg viewBox="0 0 24 24" class="search">
                             <circle cx="11" cy="11" r="7" fill="none" stroke-width="1.5"/>
                             <line x1="16" y1="16" x2="22" y2="22" stroke-width="2"/>
                         </svg>
-                    </a>
+                    </button>
                 </li>
             </ul>
 
             <ul class="nav-links">
-                <li><a href="Products.html">Shop</a></li>
+                <li class="shop-nav-item">
+                    <a href="Products.html" class="shop-trigger">
+                        Shop
+                    </a>
+                </li>
                 <li><a href="Blog.html">Blog</a></li>
                 <li><a href="About.html">About Us</a></li>
                 <li><a href="Contact.html">Contact Us</a></li>
@@ -61,6 +65,71 @@
                 </li>
             </ul>
         </nav>
+
+        <section class="search-panel">
+            <form class="search-box" id="searchForm">
+                <svg viewBox="0 0 24 24" class="search-panel-icon">
+                    <circle cx="11" cy="11" r="7" fill="none" stroke-width="1.5"/>
+                    <line x1="16" y1="16" x2="22" y2="22" stroke-width="2"/>
+                </svg>
+
+                <input type="text" id="searchInput" placeholder="Search Product">
+                <button type="submit">Search</button>
+            </form>
+
+            <section class="search-content">
+                <article class="suggested-searches">
+                    <h3>Suggested Searches</h3>
+
+                    <div class="search-keywords">
+                        <div>
+                            <a href="Search Result.html?search=Dry%20Hair">Dry Hair</a>
+                            <a href="Search Result.html?search=Frizzy%20Hair">Frizzy Hair</a>
+                            <a href="Search Result.html?search=Damaged%20Hair">Damaged Hair</a>
+                            <a href="Search Result.html?search=Oily%20Scalp">Oily Scalp</a>
+                        </div>
+
+                        <div>
+                            <a href="Search Result.html?search=Scalp%20Care">Scalp Care</a>
+                            <a href="Search Result.html?search=Conditioner">Conditioner</a>
+                            <a href="Search Result.html?search=Shampoo">Shampoo</a>
+                            <a href="Search Result.html?search=Repair%20Treatment">Repair Treatment</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="search-history">
+                    <h3>History</h3>
+                    <div class="history-list" id="historyList"></div>
+                </article>
+            </section>
+        </section>
+
+        <section class="shop-menu">
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">Shop All</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">Best Sellers</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">By Brand</a>
+                <a href="Beach.html">Beach</a>
+                <a href="MAN.html">Man</a>
+                <a href="Ossential.html">O'ssential</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">By Type</a>
+                <a href="Shampoo.html">Shampoo</a>
+                <a href="Conditioner.html">Conditioner</a>
+                <a href="Styling.html">Styling</a>
+                <a href="Treatments.html">Treatments</a>
+                <a href="Tools.html">Hair Tools</a>
+            </article>
+        </section>
     </header>
 
     <main>
@@ -72,7 +141,7 @@
 
         <section class="search-header">
             <article>
-                <h2>Search results for “Shampoo”: <em>3 Results</em></h2>
+                <h2 id="searchResultTitle">Search results for “Shampoo”: <em>3 Results</em></h2>
             </article>
 
             <div class="tabs">
@@ -105,86 +174,13 @@
         </section>
 
         <section class="result-panel active" id="productResults">
-            <section class="product-section">
-                <article class="product-card">
-                    <a href="Beach Hair Wash.html">
-                        <figure>
-                            <div class="product-image">
-                                <img class="primary-img" src="images/products/Beach Hair Wash/1.jpg" alt="Beach Hair Wash">
-                                <img class="hover-img" src="images/products/Beach Hair Wash/2.jpg" alt="Beach Hair Wash">
-                            </div>
-                            <figcaption>Beach Hair Wash</figcaption>
-                        </figure>
-                        <p class="size">250ml / bottle</p>
-                        <p class="price">$25.95 <span>inc GST</span></p>
-                    </a>
-                    <button type="button" class="add-to-cart">Add to Cart</button>
-                </article>
-
-                <article class="product-card">
-                    <a href="O'ssential Hair Wash.html">
-                        <figure>
-                            <div class="product-image">
-                                <img class="primary-img" src="images/products/O'ssential Hair Wash/1.jpg" alt="O'ssential Hair Wash">
-                                <img class="hover-img" src="images/products/O'ssential Hair Wash/2.jpg" alt="O'ssential Hair Wash">
-                            </div>
-                            <figcaption>O'ssential Hair Wash</figcaption>
-                        </figure>
-                        <p class="size">250ml / bottle</p>
-                        <p class="price">$25.95 <span>inc GST</span></p>
-                    </a>
-                    <button type="button" class="add-to-cart">Add to Cart</button>
-                </article>
-
-                <article class="product-card">
-                    <a href="Keep it Kleen Hair Wash.html">
-                        <figure>
-                            <div class="product-image">
-                                <img class="primary-img" src="images/products/Keep it Kleen Hair Wash/1.jpg" alt="Keep it Kleen Hair Wash">
-                                <img class="hover-img" src="images/products/Keep it Kleen Hair Wash/2.jpg" alt="Keep it Kleen Hair Wash">
-                            </div>
-                            <figcaption>Keep it Kleen Hair Wash</figcaption>
-                        </figure>
-                        <p class="size">250ml / bottle</p>
-                        <p class="price">$25.95 <span>inc GST</span></p>
-                    </a>
-                    <button type="button" class="out-of-stock" disabled>Out of stock</button>
-                </article>
-            </section>
+            <p class="no-results-message" id="productNoResults"></p>
+            <section class="product-section"></section>
         </section>
 
         <section class="result-panel" id="blogResults">
-            <section class="blog-section">
-                <article class="blog-card">
-                    <a href="#">
-                        <figure>
-                            <img src="images/blog/1.jpg">
-                            <figcaption>Your Ultimate Holiday Haircare Essentials!</figcaption>
-                        </figure>
-                        <p class="Date">Publication Date: 28/11/2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="#">
-                        <figure>
-                            <img src="images/blog/2.jpg">
-                            <figcaption>The ultimate short overview of Tips and Tricks for Beautiful, Healthy Hair</figcaption>
-                        </figure>
-                        <p class="Date">Publication Date: 09/09/2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="#">
-                        <figure>
-                            <img src="images/blog/3.jpg">
-                            <figcaption>Welcome to Kusco-Murphy</figcaption>
-                        </figure>
-                        <p class="Date">Publication Date: 01/09/2024</p>
-                    </a>
-                </article>
-            </section>
+            <p class="no-results-message" id="blogNoResults"></p>
+            <section class="blog-section"></section>
         </section>
 
         <section class="recommend-section">
@@ -197,99 +193,10 @@
                     </svg>
                 </button>
                 
-                <div class="recommend-viewport">
-                    <div class="recommend-products">
-                        <article class="product-card">
-                            <a href="Beach Hair Rinse.html">
-                                <figure>
-                                    <div class="product-image">
-                                        <img class="primary-img" src="images/products/Beach Hair Rinse/1.jpg" alt="Beach Hair Rinse">
-                                        <img class="hover-img" src="images/products/Beach Hair Rinse/2.jpg" alt="Beach Hair Rinse">
-                                    </div>
-                                    <figcaption>Beach Hair Rinse</figcaption>
-                                </figure>
-                                <p class="size">250ml / bottle</p>
-                                <p class="price">$25.95 <span>inc GST</span></p>
-                            </a>
-                            <button type="button" class="add-to-cart">Add to Cart</button>
-                        </article>
-
-                        <article class="product-card">
-                            <a href="O'ssential Hair Rinse.html">
-                                <figure>
-                                    <div class="product-image">
-                                        <img class="primary-img" src="images/products/O'ssential Hair Rinse/1.jpg" alt="O'ssential Hair Rinse">
-                                        <img class="hover-img" src="images/products/O'ssential Hair Rinse/2.jpg" alt="O'ssential Hair Rinse">
-                                    </div>
-                                    <figcaption>O'ssential Hair Rinse</figcaption>
-                                </figure>
-                                <p class="size">250ml / bottle</p>
-                                <p class="price">$25.95 <span>inc GST</span></p>
-                            </a>
-                            <button type="button" class="add-to-cart">Add to Cart</button>
-                        </article>
-
-                        <article class="product-card">
-                            <a href="Dry Leave In.html">
-                                <figure>
-                                    <div class="product-image">
-                                        <img class="primary-img" src="images/products/Dry Leave In/1.jpg" alt="Dry Leave In">
-                                        <img class="hover-img" src="images/products/Dry Leave In/2.jpg" alt="Dry Leave In">
-                                    </div>
-                                    <figcaption>Dry Leave In</figcaption>
-                                </figure>
-                                <p class="size">250ml / bottle</p>
-                                <p class="price">$24.95 <span>inc GST</span></p>
-                            </a>
-                            <button type="button" class="add-to-cart">Add to Cart</button>
-                        </article>
-
-                        <article class="product-card">
-                            <a href="Beach Hair Rinse.html">
-                                <figure>
-                                    <div class="product-image">
-                                        <img class="primary-img" src="images/products/Beach Hair Rinse/1.jpg" alt="Beach Hair Rinse">
-                                        <img class="hover-img" src="images/products/Beach Hair Rinse/2.jpg" alt="Beach Hair Rinse">
-                                    </div>
-                                    <figcaption>Beach Hair Rinse</figcaption>
-                                </figure>
-                                <p class="size">250ml / bottle</p>
-                                <p class="price">$25.95 <span>inc GST</span></p>
-                            </a>
-                            <button type="button" class="add-to-cart">Add to Cart</button>
-                        </article>
-
-                        <article class="product-card">
-                            <a href="O'ssential Hair Rinse.html">
-                                <figure>
-                                    <div class="product-image">
-                                        <img class="primary-img" src="images/products/O'ssential Hair Rinse/1.jpg" alt="O'ssential Hair Rinse">
-                                        <img class="hover-img" src="images/products/O'ssential Hair Rinse/2.jpg" alt="O'ssential Hair Rinse">
-                                    </div>
-                                    <figcaption>O'ssential Hair Rinse</figcaption>
-                                </figure>
-                                <p class="size">250ml / bottle</p>
-                                <p class="price">$25.95 <span>inc GST</span></p>
-                            </a>
-                            <button type="button" class="add-to-cart">Add to Cart</button>
-                        </article>
-
-                        <article class="product-card">
-                            <a href="Dry Leave In.html">
-                                <figure>
-                                    <div class="product-image">
-                                        <img class="primary-img" src="images/products/Dry Leave In/1.jpg" alt="Dry Leave In">
-                                        <img class="hover-img" src="images/products/Dry Leave In/2.jpg" alt="Dry Leave In">
-                                    </div>
-                                    <figcaption>Dry Leave In</figcaption>
-                                </figure>
-                                <p class="size">250ml / bottle</p>
-                                <p class="price">$24.95 <span>inc GST</span></p>
-                            </a>
-                            <button type="button" class="add-to-cart">Add to Cart</button>
-                        </article>
-                    </div>
-                </div>
+                <article class="recommend-viewport">
+                    <section class="recommend-products">
+                    </section>
+                </article>
 
                 <button class="recommend-next">
                     <svg viewBox="0 0 24 24">

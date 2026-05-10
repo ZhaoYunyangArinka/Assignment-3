@@ -1,0 +1,627 @@
+main {
+  padding: 9vw 8.8vw 4vw;
+}
+
+/* ———————————————————— Product Detail ———————————————————— */
+.product-detail-section {
+  display: grid;
+  grid-template-columns: 54% 42%;
+  gap: 4%;
+  align-items: start;
+  border-bottom: 0.07vw solid rgb(226, 210, 201);
+  padding-bottom: 1.7vw;
+}
+
+/* ———————————————————— Left Gallery ———————————————————— */
+.product-gallery {
+  position: sticky;
+  top: 9vw;
+}
+
+.main-product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.3vw;
+  overflow: hidden;
+}
+
+.main-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Thumbnail Carousel */
+.thumbnail-viewport {
+  width: 100%;
+  height: 7vw;
+  margin-top: 1.7vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnail-list {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Default hidden state */
+.thumbnail-list li {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%) scale(0.3);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease;
+}
+
+.thumbnail-list li button {
+  width: 6.2vw;
+  height: 6.2vw;
+
+  position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+
+  border-radius: 0.25vw;
+  overflow: hidden;
+}
+
+/* inner shadow */
+.thumbnail-list button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0.5vw rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.thumbnail-list img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbnail-list li.active button {
+  border: none;
+}
+
+/* Show only the middle five image */
+.thumbnail-list li[class*="thumb-active-"],
+.thumbnail-list li.thumb-prepare-left,
+.thumbnail-list li.thumb-prepare-right {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Location 1 */
+.thumbnail-list li.thumb-active-0 {
+  transform: translate(-23vw, -50%) scale(0.58);
+  z-index: 1;
+  opacity: 0.95;
+}
+
+/* Location 2 */
+.thumbnail-list li.thumb-active-1 {
+  transform: translate(-14vw, -50%) scale(0.8);
+  z-index: 2;
+}
+
+/* Location 3 */
+.thumbnail-list li.thumb-active-2 {
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 5;
+}
+
+/* Location 4 */
+.thumbnail-list li.thumb-active-3 {
+  transform: translate(8vw, -50%) scale(0.8);
+  z-index: 2;
+}
+
+/* Location 5 */
+.thumbnail-list li.thumb-active-4 {
+  transform: translate(17vw, -50%) scale(0.58);
+  z-index: 1;
+  opacity: 0.95;
+}
+
+/* Entry Preparation */
+/* Left */
+.thumbnail-list li.thumb-prepare-left {
+  transform: translate(-34vw, -50%) scale(0.58);
+  z-index: 1;
+}
+
+/* Right */
+.thumbnail-list li.thumb-prepare-right {
+  transform: translate(28vw, -50%) scale(0.58);
+  z-index: 1;
+}
+
+/* ———————————————————— Right Info Scroll ———————————————————— */
+.product-info-scroll {
+  height: 52vw;
+  overflow-y: auto;
+  padding-right: 0.6vw;
+}
+
+/* scrollbar */
+.product-info-scroll::-webkit-scrollbar {
+  width: 0.3vw;
+}
+
+.product-info-scroll::-webkit-scrollbar-thumb {
+  background: #EFDFD4;
+  border-radius: 2vw;
+}
+
+.product-info-scroll h1 {
+  font-size: 2.4vw;
+  line-height: 3.6vw;
+  margin-bottom: 0.28vw;
+}
+
+.rating {
+  font-size: 1.3vw;
+  letter-spacing: 0.05vw;
+}
+
+.detail-price {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.8vw;
+  font-weight: 600;
+  margin: 0.2vw 0 1.2vw;
+}
+
+.detail-price span {
+  font-family: "Reddit Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 0.8vw;
+  margin-left: 0.25vw;
+}
+
+.short-description {
+  font-size: 1.3vw;
+  line-height: 1.35;
+  color: #4A433D;
+}
+
+/* divider */
+.product-line {
+  height: 0.07vw;
+  background-color: rgb(226, 210, 201);
+  margin: 1.8vw 0;
+}
+
+.product-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2vw;
+}
+
+/* Size & Quantity label */
+.product-meta-row h3 {
+  font-size: 1.15vw;
+  color: #766454;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Size */
+.product-meta-row p {
+  font-family: "Fraunces", serif;
+  font-size: 1.25vw;
+  color: #332D29;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Quantity */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  height: 2.2vw;
+  background: #EBD8C3;
+  border-radius: 0.45vw;
+  overflow: hidden;
+}
+
+.qty-btn {
+  width: 3vw;
+  height: 100%;
+  border: none;
+  background: none;
+  font-size: 2.2vw;
+  line-height: 1;
+  color: #715C44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-0.06vw);
+}
+
+.qty-divider {
+  width: 0.12vw;
+  height: 1.75vw;
+  border-radius: 2vw;
+  background-color: #715C44;
+}
+
+.qty-number {
+  width: 2.8vw;
+  height: 100%;
+  font-family: "Afacad", serif;
+  font-size: 1.2vw;
+  color: #332D29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* When the quantity is 1, reduction is prohibited. */
+.qty-btn:disabled {
+  color: #FAF3EA;
+  cursor: not-allowed;
+}
+
+.left-divider.disabled {
+  background-color: #FAF3EA;
+}
+
+/* Buttons */
+.detail-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+  margin: 1vw 0 1.6vw;
+}
+
+.add-to-cart,
+.buy-now {
+  height: 2.5vw;
+  border-radius: 0.25vw;
+  border: none;
+  font-family: "Fraunces", serif;
+  font-size: 1vw;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-to-cart {
+  background: #A88571;
+  color: #FCFBFB;
+}
+
+.add-to-cart:hover {
+  background: #856858;
+}
+
+.add-to-cart.added {
+  background: #856858;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7vw;
+}
+
+.added-check {
+  width: 1.1vw;
+  height: 1.1vw;
+}
+
+.buy-now {
+  background: #8A5F48;
+  color: #FCFBFB;
+  text-decoration: none;
+}
+
+.buy-now:hover {
+  background: #4A2E1C;
+}
+
+/* Key Benefits */
+.benefit-box {
+  border-top: 0.07vw solid rgb(226, 210, 201);
+  border-bottom: 0.07vw solid rgb(226, 210, 201);
+}
+
+/* title row */
+.benefit-title {
+  width: 100%;
+  padding: 1.8vw 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background: none;
+}
+
+.benefit-title h3 {
+  font-size: 1.2vw;
+  margin: 0;
+  line-height: 1;
+}
+
+/* arrow */
+.benefit-arrow {
+  width: 1.6vw;
+  height: 1.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.benefit-arrow svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.benefit-box.open .benefit-arrow {
+  transform: rotate(180deg);
+}
+
+/* list */
+.benefit-list {
+  display: none;
+  padding: 0 0 1.8vw 0;
+}
+
+.benefit-box.open .benefit-list {
+  display: block;
+}
+
+.benefit-list li {
+  font-size: 1.05vw;
+  line-height: 1.45;
+  color: #4A433D;
+  padding-left: 0.6vw;
+  text-indent: -0.6vw;
+  margin-bottom: 0.6vw;
+}
+
+/* Goes Well With */
+.goes-well {
+  margin-top: 1.8vw;
+}
+
+.goes-well h3 {
+  font-size: 1.2vw;
+  margin: 0 0 1.8vw;
+}
+
+.mini-product-card {
+  display: grid;
+  grid-template-columns: 6.8vw 1fr auto;
+  grid-template-rows: auto 1fr;
+  column-gap: 1.6vw;
+  row-gap: 0.6vw;
+  align-items: start;
+}
+
+.mini-product-card a {
+  display: contents;
+}
+
+.mini-product-image {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  width: 6.8vw;
+  height: 6.8vw;
+  border-radius: 0.2vw;
+  overflow: hidden;
+}
+
+.mini-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mini-product-info {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.mini-product-info h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.4vw;
+  font-weight: 600;
+  text-align: left;
+  color: #4A433D;
+  margin-bottom: 0.2vw;
+}
+
+.mini-product-info p {
+  font-family: "Marcellus", serif;
+  font-size: 0.85vw;
+  margin: 0;
+  line-height: 1;
+}
+
+.mini-price {
+  grid-column: 3;
+  grid-row: 1;
+  font-family: "Afacad", sans-serif;
+  font-size: 1.5vw;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1;
+}
+
+.mini-price span {
+  font-family: "Reddit Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 0.5vw;
+  margin-left: 0.25vw;
+}
+
+.mini-product-card .add-to-cart {
+  grid-column: 2 / 4;
+  grid-row: 2;
+  align-self: end;
+  height: 2.2vw;
+  margin: 0;
+  background: #EFDFD4;
+  color: #332D29;
+}
+
+.mini-product-card .add-to-cart:hover {
+  background: #E2C4AD;
+}
+
+.mini-product-card .add-to-cart.added {
+  background: #E2C4AD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7vw;
+}
+
+/* ———————————————————— Description & Application ———————————————————— */
+.product-intro-section {
+  padding-top: 3.5vw;
+}
+
+/* tabs */
+.intro-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 4vw;
+}
+
+.intro-tab {
+  font-size: 1.8vw;
+  color: #332D29;
+  border: none;
+  background: none;
+}
+
+.intro-tab.active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 1vw;
+}
+
+/* Content */
+.intro-content {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  height: 34vw; 
+  border-radius: 0.4vw;
+  overflow: hidden;
+}
+
+.intro-content.active {
+  display: grid;
+}
+
+/* Image */
+.intro-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Image carousel */
+.intro-image-carousel {
+  position: relative;
+  height: 34vw;
+  overflow: hidden;
+}
+
+.intro-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.intro-slide.active {
+  opacity: 1;
+}
+
+.intro-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 1vw;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 0.5vw;
+  z-index: 2;
+}
+
+.intro-dot {
+  width: 0.45vw;
+  height: 0.45vw;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(246, 234, 212, 0.735);
+  padding: 0;
+}
+
+.intro-dot.active {
+  width: 1.2vw;
+  border-radius: 1vw;
+  background-color: #f4ede3f1;
+}
+
+/* Text */
+.intro-text {
+  background: #EEDCCF;
+  padding: 4vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#description .intro-text {
+  text-align: left;
+  align-items: flex-start;
+}
+
+#application .intro-text {
+  text-align: center;
+  align-items: center;
+}
+
+.intro-text h2 {
+  font-family: "Fraunces", serif;
+  font-size: 1.6vw;
+  font-weight: 600;
+  margin-bottom: 1.8vw;
+}
+
+#description .intro-text h2 {
+  text-align: left;
+}
+
+#application .intro-text h2 {
+  text-align: center;
+}
+
+.intro-text p {
+  font-size: 1.2vw;
+  margin-bottom: 1.2vw;
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kusco-Murphy</title>
+    <link rel="stylesheet" href="Global.css">
+    <link rel="stylesheet" href="Product Page.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Cinzel+Decorative:wght@400;700;900&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kurale&family=Marcellus&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Reddit+Sans+Condensed:wght@200..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <section class="brand-bar">
+            <a href="index.html" class="brand">Kusco-Murphy</a>
+        </section>
+
+        <nav>
+            <ul class="nav-icons-left">
+                <li>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24" class="account">
+                            <circle cx="12" cy="8" r="4" fill="none" stroke-width="1.5"/>
+                            <path d="M4 20c2-7 14-7 16 0" fill="none" stroke-width="1.5"/>
+                        </svg>
+                    </a>
+                </li>
+
+                <li>
+                    <button type="button" class="search-trigger">
+                        <svg viewBox="0 0 24 24" class="search">
+                            <circle cx="11" cy="11" r="7" fill="none" stroke-width="1.5"/>
+                            <line x1="16" y1="16" x2="22" y2="22" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <ul class="nav-links">
+                <li class="shop-nav-item">
+                    <a href="Products.html" class="shop-trigger">
+                        Shop
+                    </a>
+                </li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+
+            <ul class="nav-icons-right">
+                <li>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24" class="cart">
+                            <path d="M3 4h3l2.2 11h9.8l2-8H7.2"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                            <circle cx="9" cy="20" r="1.6"/>
+                            <circle cx="17" cy="20" r="1.6"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="search-panel">
+            <form class="search-box" id="searchForm">
+                <svg viewBox="0 0 24 24" class="search-panel-icon">
+                    <circle cx="11" cy="11" r="7" fill="none" stroke-width="1.5"/>
+                    <line x1="16" y1="16" x2="22" y2="22" stroke-width="2"/>
+                </svg>
+
+                <input type="text" id="searchInput" placeholder="Search Product">
+                <button type="submit">Search</button>
+            </form>
+
+            <section class="search-content">
+                <article class="suggested-searches">
+                    <h3>Suggested Searches</h3>
+
+                    <div class="search-keywords">
+                        <div>
+                            <a href="Search Result.html?search=Dry%20Hair">Dry Hair</a>
+                            <a href="Search Result.html?search=Frizzy%20Hair">Frizzy Hair</a>
+                            <a href="Search Result.html?search=Damaged%20Hair">Damaged Hair</a>
+                            <a href="Search Result.html?search=Oily%20Scalp">Oily Scalp</a>
+                        </div>
+
+                        <div>
+                            <a href="Search Result.html?search=Scalp%20Care">Scalp Care</a>
+                            <a href="Search Result.html?search=Conditioner">Conditioner</a>
+                            <a href="Search Result.html?search=Shampoo">Shampoo</a>
+                            <a href="Search Result.html?search=Repair%20Treatment">Repair Treatment</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="search-history">
+                    <h3>History</h3>
+                    <div class="history-list" id="historyList"></div>
+                </article>
+            </section>
+        </section>
+
+        <section class="shop-menu">
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">Shop All</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">Best Sellers</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">By Brand</a>
+                <a href="Beach.html">Beach</a>
+                <a href="MAN.html">Man</a>
+                <a href="Ossential.html">O'ssential</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">By Type</a>
+                <a href="Shampoo.html">Shampoo</a>
+                <a href="Conditioner.html">Conditioner</a>
+                <a href="Styling.html">Styling</a>
+                <a href="Treatments.html">Treatments</a>
+                <a href="Tools.html">Hair Tools</a>
+            </article>
+        </section>
+    </header>
+
+    <main class="product-page">
+        <section class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>|</span>
+            <a href="Search Result.html">Search Results</a>
+            <span>|</span>
+            <span id="breadcrumbProductName"></span>
+        </section>
+
+        <section class="product-detail-section">
+            <article class="product-gallery">
+                <div class="main-product-image">
+                    <img id="mainProductImage" src="" alt="">
+                </div>
+
+                <div class="thumbnail-viewport">
+                    <ul class="thumbnail-list" id="thumbnailList"></ul>
+                </div>
+            </article>
+
+            <article class="product-info-scroll">
+                <h1 id="productTitle"></h1>
+
+                <p class="rating">★ ★ ★ ★ ☆</p>
+
+                <p class="detail-price" id="productPrice"></p>
+
+                <p class="short-description" id="productShortDescription"></p>
+
+                <div class="product-line"></div>
+
+                <section class="product-meta-row">
+                    <h3>Size</h3>
+                    <p id="productSize"></p>
+                </section>
+
+                <section class="product-meta-row">
+                    <h3>Quantity</h3>
+
+                    <div class="quantity-control">
+                        <button type="button" id="minusQty" class="qty-btn minus-btn" disabled>-</button>
+                        <span class="qty-divider left-divider"></span>
+                        <span id="quantityNumber" class="qty-number">1</span>
+                        <span class="qty-divider right-divider"></span>
+                        <button type="button" id="plusQty" class="qty-btn plus-btn">+</button>
+                    </div>
+                </section>
+
+                <section class="detail-buttons">
+                    <button type="button" class="add-to-cart" id="productAddToCart">Add To Cart</button>
+                    <a href="#" class="buy-now" id="productBuyNow">Buy Now</a>
+                </section>
+
+                <section class="benefit-box">
+                    <button type="button" class="benefit-title" id="benefitToggle">
+                        <h3>Key Benefits</h3>
+                        <span class="benefit-arrow">
+                            <svg viewBox="0 0 24 24">
+                                <polyline 
+                                points="6 9 12 15 18 9"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.4"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+                    </button>
+
+                    <ul class="benefit-list" id="benefitList"></ul>
+                </section>
+
+                <section class="goes-well">
+                    <h3>Goes well with</h3>
+                    <div id="goesWellContainer"></div>
+                </section>
+            </article>
+        </section>
+
+        <section class="product-intro-section">
+            <div class="intro-tabs">
+                <button type="button" class="intro-tab active" data-target="description">Description</button>
+                <button type="button" class="intro-tab" data-target="application">Application</button>
+            </div>
+
+            <article class="intro-content active" id="description">
+                <figure class="intro-image-carousel" id="descriptionImageCarousel"></figure>
+
+                <div class="intro-text">
+                    <h2 id="descriptionTitle"></h2>
+                    <div id="descriptionParagraphs"></div>
+                </div>
+            </article>
+
+            <article class="intro-content" id="application">
+                <figure class="intro-image-carousel" id="applicationImageCarousel"></figure>
+
+                <div class="intro-text">
+                    <h2 id="applicationTitle"></h2>
+                    <div id="applicationParagraphs"></div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer-column" aria-labelledby="footer-shop">
+            <h4>Shop</h4>
+            <ul>
+                <li><a href="#">Shampoo</a></li>
+                <li><a href="#">Conditioner</a></li>
+                <li><a href="#">Styling</a></li>
+                <li><a href="#">Treatments</a></li>
+                <li><a href="#">Hair Tools</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-column" aria-labelledby="footer-learn">
+            <h4>Learn</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-column" aria-labelledby="footer-care">
+            <h4>Customer Care</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-brand">
+            <h3>Kusco-Murphy</h3>
+            <p id="location">Melbourne, Australia</p>
+            <p id="email">enquiries@kuscomurphy.com.au</p>
+            <p id="company">© Kusco Murphy International Products Pty Ltd</p>
+        </section>
+    </footer>
+    <script src="script.js"></script>    
+</body>
+</html>

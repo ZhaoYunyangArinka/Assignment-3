@@ -52,7 +52,9 @@
 
 /* When hovering over the nav */
 /* brand-bar shadow disappears */
-.header-home:hover .brand-bar {
+.header-home:hover .brand-bar,
+.header-home.shop-menu-active .brand-bar,
+.header-home.search-panel-active .brand-bar {
   box-shadow: none;
 }
 
@@ -69,12 +71,16 @@
   transition: opacity 0.35s ease;
 }
 
-.header-home:hover nav::before {
+.header-home:hover nav::before,
+.header-home.shop-menu-active nav::before,
+.header-home.search-panel-active nav::before {
   opacity: 1;
 }
 
 /* Color change, adding shadows below the nav */
-.header-home:hover nav {
+.header-home:hover nav,
+.header-home.shop-menu-active nav,
+.header-home.search-panel-active nav {
   background-color: #57453A;
   color: #FCFBFB;
   box-shadow: 0 0.15vw 0.2vw rgba(0, 0, 0, 0.35);
@@ -97,8 +103,9 @@
 }
 
 .header-home .nav-links a {
-  height: 3.2vw;
-  min-width: 5.8vw;
+  height: 4.2vw;
+  min-width: 6.8vw;
+  padding: 0 0.8vw;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -108,15 +115,7 @@
   text-decoration: none;
   text-underline-offset: 0.5vw;
   text-decoration-thickness: 0.12vw;
-  transition: font-weight 0.2s ease;
-}
-
-/* When hovering, the text is bold and underlined. */
-.header-home .nav-links li:hover a {
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-thickness: 0.12vw;
-  -webkit-text-stroke: 0.02vw #FCFBFB;
+  transition: font-weight 0.25s ease;
 }
 
 /* Cart icon */
@@ -134,6 +133,7 @@
 
 /* Icon click area */
 .header-home .nav-icons-left a,
+.header-home .nav-icons-left button
 .header-home .nav-icons-right a {
   width: 2.4vw;
   height: 3.2vw;
@@ -158,6 +158,18 @@
 .header-home .nav-icons-right svg circle {
   stroke: currentColor;
   fill: none;
+}
+
+.header-home.search-panel-active .brand-bar,
+.header-home.shop-menu-active .brand-bar,
+.header-home:has(.shop-nav-item:hover) .brand-bar {
+  box-shadow: none;
+}
+
+.header-home.search-panel-active nav,
+.header-home.shop-menu-active nav,
+.header-home:has(.shop-nav-item:hover) nav {
+  box-shadow: none;
 }
 
 /* ———————————————————— Hero ———————————————————— */
