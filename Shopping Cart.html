@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kusco-Murphy</title>
     <link rel="stylesheet" href="Global.css">
-    <link rel="stylesheet" href="Product Page.css">
+    <link rel="stylesheet" href="Shopping Cart.css">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,108 +131,125 @@
         </section>
     </header>
 
-    <main class="product-page">
-        <section class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>|</span>
-            <a href="Search Result.html">Search Results</a>
-            <span>|</span>
-            <span id="breadcrumbProductName"></span>
+    <main class="cart-page">
+        <section class="breadcrumb" id="breadcrumb"></section>
+
+        <h2 id="cartTitle" class="cart-title">Shopping Cart (0)</h2>
+
+        <section class="cart-layout">
+            <section class="cart-items" id="cartItems"></section>
+
+            <aside class="order-summary">
+                <h3>Order summary</h3>
+
+                <section class="summary-address">
+                    <svg viewBox="0 0 24 24" class="location-pin">
+                        <path
+                            d="M12 21C12 21 5 14.8 5 9.5C5 5.6 8.1 2.5 12 2.5C15.9 2.5 19 5.6 19 9.5C19 14.8 12 21 12 21Z"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linejoin="round"
+                        />
+                        <circle cx="12" cy="9.5" r="2" fill="currentColor" />
+                    </svg>
+
+                    <p>The University of Melbourne, Victoria 3010 Australia</p>
+
+                    <span>User Name</span>
+
+                    <span>+61 411234567</span>
+
+                    <button type="button" class="edit-address">✎</button>
+                </section>
+
+                <div class="summary-line"></div>
+
+                <section class="summary-row">
+                    <span>Sub Total</span>
+                    <strong id="summarySubtotal">$0.00</strong>
+                </section>
+
+                <section class="summary-row">
+                    <span>Shipping</span>
+                    <strong id="summaryShipping">$0.00</strong>
+                </section>
+
+                <section class="summary-row total">
+                    <span>Total</span>
+                    <strong id="summaryTotal">$0.00</strong>
+                </section>
+
+                <div class="summary-line"></div>
+
+                <section class="payment-method">
+                    <h4>Payment Method</h4>
+
+                    <label class="payment-option">
+                        <section class="payment-left">
+                            <input type="radio" name="payment" checked>
+
+                            <span>Credit or Debit Card</span>
+                        </section>
+
+                        <section class="payment-icons">
+                            <img src="images/Shopping Cart/visa.jpg" alt="Visa">
+
+                            <img src="images/Shopping Cart/mastercard.jpg" alt="Mastercard">
+                        </section>
+                    </label>
+
+                    <label class="payment-option">
+                        <section class="payment-left">
+                            <input type="radio" name="payment">
+
+                            <span>PayPal</span>
+                        </section>
+
+                        <section class="payment-icons">
+                            <img src="images/Shopping Cart/paypal.jpg" alt="PayPal">
+                        </section>
+                    </label>
+
+                    <label class="payment-option">
+                        <section class="payment-left">
+                            <input type="radio" name="payment">
+
+                            <span>Apple Pay</span>
+                        </section>
+
+                        <section class="payment-icons">
+                            <img src="images/Shopping Cart/applepay.jpg" alt="Apple Pay">
+                        </section>
+                    </label>
+                </section>
+
+                <button type="button" class="checkout-btn" id="checkoutBtn">
+                Proceed To Checkout
+                </button>
+            </aside>
         </section>
 
-        <section class="product-detail-section">
-            <article class="product-gallery">
-                <div class="main-product-image">
-                    <img id="mainProductImage" src="" alt="">
-                </div>
+        <section class="recommend-section">
+            <h2>You may also like</h2>
 
-                <div class="thumbnail-viewport">
-                    <ul class="thumbnail-list" id="thumbnailList"></ul>
-                </div>
-            </article>
+            <article class="recommend">
+                <button class="recommend-prev">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="15 6 9 12 15 18" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+                
+                <article class="recommend-viewport">
+                    <section class="recommend-products">
+                    </section>
+                </article>
 
-            <article class="product-info-scroll">
-                <h1 id="productTitle"></h1>
-
-                <p class="rating">★ ★ ★ ★ ☆</p>
-
-                <p class="detail-price" id="productPrice"></p>
-
-                <p class="short-description" id="productShortDescription"></p>
-
-                <div class="product-line"></div>
-
-                <section class="product-meta-row">
-                    <h3>Size</h3>
-                    <p id="productSize"></p>
-                </section>
-
-                <section class="product-meta-row">
-                    <h3>Quantity</h3>
-
-                    <div class="quantity-control">
-                        <button type="button" id="minusQty" class="qty-btn minus-btn" disabled>-</button>
-                        <span class="qty-divider left-divider"></span>
-                        <span id="quantityNumber" class="qty-number">1</span>
-                        <span class="qty-divider right-divider"></span>
-                        <button type="button" id="plusQty" class="qty-btn plus-btn">+</button>
-                    </div>
-                </section>
-
-                <section class="detail-buttons">
-                    <button type="button" class="add-to-cart" id="productAddToCart">Add To Cart</button>
-                    <a href="#" class="buy-now" id="productBuyNow">Buy Now</a>
-                </section>
-
-                <section class="benefit-box">
-                    <button type="button" class="benefit-title" id="benefitToggle">
-                        <h3>Key Benefits</h3>
-                        <span class="benefit-arrow">
-                            <svg viewBox="0 0 24 24">
-                                <polyline 
-                                points="6 9 12 15 18 9"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                />
-                            </svg>
-                        </span>
-                    </button>
-
-                    <ul class="benefit-list" id="benefitList"></ul>
-                </section>
-
-                <section class="goes-well">
-                    <h3>Goes well with</h3>
-                    <div id="goesWellContainer"></div>
-                </section>
-            </article>
-        </section>
-
-        <section class="product-intro-section">
-            <div class="intro-tabs">
-                <button type="button" class="intro-tab active" data-target="description">Description</button>
-                <button type="button" class="intro-tab" data-target="application">Application</button>
-            </div>
-
-            <article class="intro-content active" id="description">
-                <figure class="intro-image-carousel" id="descriptionImageCarousel"></figure>
-
-                <div class="intro-text">
-                    <h2 id="descriptionTitle"></h2>
-                    <div id="descriptionParagraphs"></div>
-                </div>
-            </article>
-
-            <article class="intro-content" id="application">
-                <figure class="intro-image-carousel" id="applicationImageCarousel"></figure>
-
-                <div class="intro-text">
-                    <h2 id="applicationTitle"></h2>
-                    <div id="applicationParagraphs"></div>
-                </div>
+                <button class="recommend-next">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="9 6 15 12 9 18" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
             </article>
         </section>
     </main>

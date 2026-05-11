@@ -510,6 +510,369 @@ header.shop-menu-active nav {
   margin-left: 0; 
 }
 
+/* ———————————————————— Add to Cart Modal ———————————————————— */
+.cart-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-modal-overlay.active {
+  display: flex;
+}
+
+.cart-modal {
+  position: relative;
+  width: 54vw;
+  background: #FFF7F1;
+  padding: 1.6vw 2vw 1.8vw;
+  box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.18);
+}
+
+.cart-modal-close {
+  position: absolute;
+  top: 1vw;
+  right: 2vw;
+  border: none;
+  background: none;
+  font-size: 2vw;
+  line-height: 1;
+  color: #332D29;
+  cursor: pointer;
+}
+
+.cart-modal-success {
+  font-family: "Fraunces", serif;
+  font-size: 1.65vw;
+  font-weight: 500;
+  color: #332D29;
+  margin: 0 0 1.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vw 0 1.4vw;
+}
+
+.cart-modal-line {
+  height: 0.07vw;
+  background: rgba(74, 67, 61, 0.22);
+  margin-bottom: 1.4vw;
+}
+
+.cart-modal-title {
+  font-family: "Fraunces", serif;
+  font-size: 1.4vw;
+  font-weight: 450;
+  color: #332D29;
+  padding: 0.6vw 0 1vw 0;
+}
+
+.cart-modal-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-modal-item {
+  display: grid;
+  grid-template-columns: 7.2vw 1fr auto;
+  column-gap: 1.8vw;
+  align-items: start;
+}
+
+.cart-modal-item img {
+  width: 7.2vw;
+  height: 7.2vw;
+  object-fit: cover;
+  border-radius: 0.2vw;
+}
+
+.cart-modal-item h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.4vw;
+  font-weight: 600;
+  text-align: left;
+  color: #4A433D;
+  margin-bottom: 0.2vw;
+}
+
+.cart-modal-item p {
+  font-family: "Marcellus", serif;
+  font-size: 0.85vw;
+  color: #4A433D;
+  margin: 0.4vw 0 0;
+}
+
+.cart-modal-item p.cart-modal-each-price {
+  margin-top: 2.2vw;
+  font-family: "Afacad", sans-serif;
+  font-size: 1.2vw;
+  font-weight: 600;
+  line-height: 1;
+  color: #332D29;
+}
+
+.cart-modal-item p.cart-modal-each-price span {
+  font-family: "Reddit Sans Condensed", sans-serif;
+  font-size: 0.5vw;
+  font-weight: 400;
+  margin-left: 0.25vw;
+  color: #332D29;
+}
+
+.cart-modal-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3vw;
+}
+
+.cart-modal-quantity {
+  display: flex;
+  align-items: center;
+  height: 2.1vw;
+  background: #EBD8C3;
+  border-radius: 0.2vw;
+  overflow: hidden;
+}
+
+.cart-modal-quantity button {
+  width: 2.1vw;
+  height: 100%;
+  border: none;
+  background: none;
+  font-size: 1.35vw;
+  color: #715C44;
+  cursor: pointer;
+}
+
+.cart-modal-quantity button:disabled {
+  color: #FAF3EA;
+  cursor: not-allowed;
+}
+
+.cart-modal-number {
+  width: 2.3vw;
+  text-align: center;
+  font-family: "Afacad", sans-serif;
+  font-size: 1vw;
+  color: #332D29;
+}
+
+.cart-modal-divider {
+  width: 0.08vw;
+  height: 1.45vw;
+  background-color: #715C44;
+  flex-shrink: 0;
+}
+
+.cart-modal-divider.disabled {
+  background-color: #FAF3EA;
+}
+
+.cart-modal-price {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.5vw;
+  font-weight: 650;
+  color: #332D29;
+}
+
+.cart-modal-summary {
+  display: none;
+}
+
+.cart-modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+  margin-top: 2vw;
+}
+
+.cart-modal-actions button,
+.cart-modal-actions a {
+  height: 2.2vw;
+  border: none;
+  border-radius: 0.25vw;
+  font-family: "Fraunces", serif;
+  font-size: 1vw;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.continue-shopping {
+  background-color: #EFDFD4;
+  color: #332D29;
+  cursor: pointer;
+}
+
+.continue-shopping:hover {
+  background-color: #E2C4AD;
+}
+
+.view-cart {
+  background-color: #A88571;
+  color: #FCFBFB;
+}
+
+.view-cart:hover {
+  background-color: #856858;
+}
+
+/* ———————————————————— Recommendation ———————————————————— */
+.recommend-section {
+  margin-top: 4.7vw;
+}
+
+.recommend-section > h2 {
+  font-size: 1.8vw;
+  margin-bottom: 1.7vw;
+}
+
+.recommend {
+  position: relative;
+  overflow: visible;
+}
+
+.recommend-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.recommend-products {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 10vw) / 3);
+  column-gap: 5vw;
+  transition: transform 0.45s ease;
+}
+
+.product-card figure {
+  margin: 0;
+}
+
+.product-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0.25vw;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+
+.hover-img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.product-image:hover .hover-img {
+  opacity: 1;
+}
+
+.product-image:hover .primary-img {
+  opacity: 0;
+}
+
+.product-card figcaption {
+  font-family: "Fraunces", serif;
+  font-size: 1.45vw;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-top: 0.75vw;
+  color: #332D29;
+}
+
+.product-card .size {
+  font-family: "Marcellus", serif;
+  font-size: 0.85vw;
+  margin-top: 0.2vw;
+  color: #4A433D;
+}
+
+.product-card .price {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.45vw;
+  font-weight: 650;
+  margin-top: 2.2vw;
+  margin-bottom: 0.45vw;
+}
+
+.product-card .price span {
+  font-family: "Reddit Sans Condensed", sans-serif;
+  font-size: 0.55vw;
+  font-weight: 400;
+  margin-left: 0.25vw;
+}
+
+.product-card .add-to-cart {
+  width: 100%;
+  height: 2.1vw;
+  border: none;
+  border-radius: 0.25vw;
+  background-color: #EFDFD4;
+  color: #332D29;
+  font-family: "Fraunces", serif;
+  font-size: 0.9vw;
+  text-transform: uppercase;
+}
+
+.product-card .add-to-cart:hover {
+  background-color: #E2C4AD;
+}
+
+/* Arrow */
+.recommend-prev svg,
+.recommend-next svg {
+  width: 1.6vw;
+  height: 1.6vw;
+}
+
+.recommend-prev,
+.recommend-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.6vw;
+  height: 2.6vw;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #FFF7F1;
+  background-color: #A88571;
+  z-index: 10;
+}
+
+.recommend-prev {
+  left: -4.5vw;
+}
+
+.recommend-next {
+  right: -4.5vw;
+}
+
+.recommend-prev:hover,
+.recommend-next:hover {
+  transform: translateY(-50%) scale(1.08);
+  background-color: #9A7A67;
+}
+
 /* ———————————————————— Footer ———————————————————— */
 footer {
   background-color: #5a4538;

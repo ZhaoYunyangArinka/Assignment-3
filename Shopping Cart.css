@@ -1,0 +1,374 @@
+main.cart-page {
+  padding: 9vw 8.8vw 4vw;
+}
+
+.cart-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.8vw;
+  margin: 2.4vw 0 2.4vw;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 32%;
+  gap: 2vw;
+  align-items: start;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 9vw 1fr 13vw;
+  column-gap: 2vw;
+  align-items: start;
+  padding: 2.3vw 0;
+  border-bottom: 0.07vw solid rgb(226, 210, 201);
+}
+
+.cart-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 9vw;
+}
+
+.cart-product-link {
+  display: contents;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cart-item img {
+  width: 9vw;
+  height: 9vw;
+  object-fit: cover;
+  border-radius: 0.45vw;
+}
+
+.cart-item h3 {
+  font-size: 1.55vw;
+  font-weight: 500;
+  margin: 0 0 0.15vw;
+  color: #332D29;
+}
+
+.cart-item .cart-size {
+  font-family: "Marcellus", serif;
+  font-size: 1vw;
+  color: #4A433D;
+}
+
+.cart-item-info {
+  height: 9vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item .cart-price {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.5vw;
+  font-weight: 650;
+  margin-top: auto;
+}
+
+.cart-item .cart-price span {
+  font-family: "Reddit Sans Condensed", sans-serif;
+  font-size: 0.8vw;
+  font-weight: 400;
+  margin-left: 0.25vw;
+}
+
+.cart-quantity-control {
+  display: flex;
+  align-items: center;
+  height: 2.2vw;
+  background: #EBD8C3;
+  border-radius: 0.45vw;
+  overflow: hidden;
+}
+
+.cart-qty-btn {
+  width: 3vw;
+  height: 100%;
+  border: none;
+  background: none;
+  font-size: 2.2vw;
+  line-height: 1;
+  color: #715C44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-0.06vw);
+}
+
+.cart-qty-divider {
+  width: 0.12vw;
+  height: 1.75vw;
+  border-radius: 2vw;
+  background-color: #715C44;
+}
+
+.cart-qty-number {
+  width: 2.8vw;
+  height: 100%;
+  font-family: "Afacad", serif;
+  font-size: 1.2vw;
+  color: #332D29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-qty-btn:disabled {
+  color: #FAF3EA;
+  cursor: not-allowed;
+}
+
+.left-divider.disabled {
+  background-color: #FAF3EA;
+}
+
+.delete-cart-item {
+  width: 2vw;
+  height: 2vw;
+  border: none;
+  border-radius: 0.35vw;
+  background-color: #EBD8C3;
+  color: #332D29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: auto;
+}
+
+.delete-cart-item:hover{
+  background-color: #D0B9A2;
+}
+
+.delete-cart-item svg {
+  width: 3vw;
+  height: 1.8vw;
+}
+
+.delete-cart-item svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.empty-cart-message {
+  font-family: "Fraunces", serif;
+  font-size: 1.35vw;
+  font-weight: 400;
+  color: #4A433D;
+  text-align: center;
+  padding: 4vw 0;
+}
+
+/* ———————————————————— Order Summary ———————————————————— */
+.order-summary {
+  background-color: #EEDECF;
+  padding: 1.2vw 1.6vw 1.3vw;
+  color: #332D29;
+}
+
+.order-summary h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.5vw;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.2vw;
+}
+
+.summary-address {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4vw 1fr auto;
+  column-gap: 0.7vw;
+  align-items: start;
+}
+
+.location-pin {
+  width: 1.4vw;
+  height: 1.4vw;
+  color: #332D29;
+  margin-top: 0.1vw;
+}
+
+.summary-address p {
+  font-family: "Neuton", serif;
+  font-size: 1.15vw;
+  line-height: 1;
+}
+
+.summary-address span {
+  color: #70553E;
+  line-height: 1;
+}
+
+.summary-address span:nth-of-type(1) {
+  font-family: "Marcellus", serif;
+  font-size: 0.9vw;
+  grid-column: 2;
+  margin-top: 0.6vw;
+}
+
+.summary-address span:nth-of-type(2) {
+  font-family: "Afacad", serif;
+  font-size: 0.95vw;
+  grid-column: 2;
+  margin-left: 5vw;
+  margin-top: -0.9vw;
+}
+
+.edit-address {
+  grid-column: 3;
+  grid-row: 1;
+  border: none;
+  background: none;
+  font-size: 1.1vw;
+  color: #715C44;
+}
+
+.summary-line {
+  height: 0.07vw;
+  background-color: #D6C3B9;
+  margin: 1.2vw 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.55vw;
+}
+
+.summary-row span {
+  font-family: "Fraunces", serif;
+  font-weight: 350;
+  font-size: 1vw;
+  color: #4A433D;
+}
+
+.summary-row.total span {
+  font-family: "Fraunces", sans-serif;
+  font-size: 1.2vw;
+  font-weight: 450;
+  color: #332D29;
+}
+
+.summary-row strong {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.2vw;
+  font-weight: 450;
+  color: #4A433D;
+}
+
+.summary-row.total strong {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.35vw;
+  font-weight: 700;
+  color: #332D29;
+}
+
+.payment-method h4 {
+  font-family: "Fraunces", sans-serif;
+  font-size: 1.25vw;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-bottom: 0.7vw;
+}
+
+.payment-option {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 0.5vw;
+}
+
+.payment-left {
+  display: flex;
+  align-items: center;
+  gap: 0.55vw;
+}
+
+.payment-left input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1vw;
+  height: 1vw;
+  border: 0.1vw solid #332D29;
+  border-radius: 50%;
+  background-color: #EEDECF;
+  display: grid;
+  place-content: center;
+  margin: 0;
+}
+
+.payment-left input::before {
+  content: "";
+  width: 0.45vw;
+  height: 0.45vw;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.15s transform ease-in-out;
+  background-color: #332D29;
+}
+
+.payment-left input:checked::before {
+  transform: scale(1);
+}
+
+.payment-left span {
+  font-family: "Fraunces", serif;
+  font-weight: 350;
+  font-size: 1vw;
+  color: #4A433D;
+}
+
+.payment-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.3vw;
+}
+
+.payment-icons img {
+  width: 2.6vw;
+  height: auto;
+  object-fit: contain;
+}
+
+.checkout-btn {
+  width: 100%;
+  height: 2.6vw;
+  margin-top: 1.25vw;
+  border: none;
+  border-radius: 0.25vw;
+  background-color: #8A5F48;
+  color: #FCFBFB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45vw;
+}
+
+.checkout-btn:hover {
+  background-color: #4A2E1C;
+}
+
+.checkout-label {
+  font-family: "Fraunces", serif;
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+
+.checkout-price {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.3vw;
+  font-weight: 550;
+  letter-spacing: 0.01vw;
+}
