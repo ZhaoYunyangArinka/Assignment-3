@@ -173,6 +173,9 @@ main.cart-page {
   background-color: #EEDECF;
   padding: 1.2vw 1.6vw 1.3vw;
   color: #332D29;
+  position: sticky;
+  top: 0vw;
+  align-self: start;
 }
 
 .order-summary h3 {
@@ -337,12 +340,18 @@ main.cart-page {
 }
 
 .payment-icons img {
-  width: 2.6vw;
-  height: auto;
+  width: 3.05vw;
+  height: 1.8vw;
+  padding: 0.2vw;
+  background-color: #FFFFFF;
+  border-radius: 0.15vw;
   object-fit: contain;
 }
 
 .checkout-btn {
+  font-family: "Fraunces", serif;
+  font-size: 1.2vw;
+  font-weight: 500;
   width: 100%;
   height: 2.6vw;
   margin-top: 1.25vw;
@@ -358,17 +367,4 @@ main.cart-page {
 
 .checkout-btn:hover {
   background-color: #4A2E1C;
-}
-
-.checkout-label {
-  font-family: "Fraunces", serif;
-  font-size: 1.2vw;
-  font-weight: 500;
-}
-
-.checkout-price {
-  font-family: "Afacad", sans-serif;
-  font-size: 1.3vw;
-  font-weight: 550;
-  letter-spacing: 0.01vw;
 }

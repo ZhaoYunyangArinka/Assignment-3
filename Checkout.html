@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kusco-Murphy</title>
+    <link rel="stylesheet" href="Global.css">
+    <link rel="stylesheet" href="Checkout.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Cinzel+Decorative:wght@400;700;900&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kurale&family=Marcellus&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Reddit+Sans+Condensed:wght@200..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <section class="brand-bar">
+            <a href="index.html" class="brand">Kusco-Murphy</a>
+        </section>
+
+        <nav>
+            <ul class="nav-icons-left">
+                <li>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24" class="account">
+                            <circle cx="12" cy="8" r="4" fill="none" stroke-width="1.5"/>
+                            <path d="M4 20c2-7 14-7 16 0" fill="none" stroke-width="1.5"/>
+                        </svg>
+                    </a>
+                </li>
+
+                <li>
+                    <button type="button" class="search-trigger">
+                        <svg viewBox="0 0 24 24" class="search">
+                            <circle cx="11" cy="11" r="7" fill="none" stroke-width="1.5"/>
+                            <line x1="16" y1="16" x2="22" y2="22" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            <ul class="nav-links">
+                <li class="shop-nav-item">
+                    <a href="Products.html" class="shop-trigger">
+                        Shop
+                    </a>
+                </li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+
+            <ul class="nav-icons-right">
+                <li>
+                    <a href="Shopping Cart.html">
+                        <svg viewBox="0 0 24 24" class="cart">
+                            <path d="M3 4h3l2.2 11h9.8l2-8H7.2"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                            <circle cx="9" cy="20" r="1.6"/>
+                            <circle cx="17" cy="20" r="1.6"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="search-panel">
+            <form class="search-box" id="searchForm">
+                <svg viewBox="0 0 24 24" class="search-panel-icon">
+                    <circle cx="11" cy="11" r="7" fill="none" stroke-width="1.5"/>
+                    <line x1="16" y1="16" x2="22" y2="22" stroke-width="2"/>
+                </svg>
+
+                <input type="text" id="searchInput" placeholder="Search Product">
+                <button type="submit">Search</button>
+            </form>
+
+            <section class="search-content">
+                <article class="suggested-searches">
+                    <h3>Suggested Searches</h3>
+
+                    <div class="search-keywords">
+                        <div>
+                            <a href="Search Result.html?search=Dry%20Hair">Dry Hair</a>
+                            <a href="Search Result.html?search=Frizzy%20Hair">Frizzy Hair</a>
+                            <a href="Search Result.html?search=Damaged%20Hair">Damaged Hair</a>
+                            <a href="Search Result.html?search=Oily%20Scalp">Oily Scalp</a>
+                        </div>
+
+                        <div>
+                            <a href="Search Result.html?search=Scalp%20Care">Scalp Care</a>
+                            <a href="Search Result.html?search=Conditioner">Conditioner</a>
+                            <a href="Search Result.html?search=Shampoo">Shampoo</a>
+                            <a href="Search Result.html?search=Repair%20Treatment">Repair Treatment</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="search-history">
+                    <h3>History</h3>
+                    <div class="history-list" id="historyList"></div>
+                </article>
+            </section>
+        </section>
+
+        <section class="shop-menu">
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">Shop All</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">Best Sellers</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">By Brand</a>
+                <a href="Beach.html">Beach</a>
+                <a href="MAN.html">Man</a>
+                <a href="Ossential.html">O'ssential</a>
+            </article>
+
+            <article class="shop-menu-column">
+                <a href="Products.html" class="menu-main-link">By Type</a>
+                <a href="Shampoo.html">Shampoo</a>
+                <a href="Conditioner.html">Conditioner</a>
+                <a href="Styling.html">Styling</a>
+                <a href="Treatments.html">Treatments</a>
+                <a href="Tools.html">Hair Tools</a>
+            </article>
+        </section>
+    </header>
+
+    <main class="checkout-page">
+        <section class="breadcrumb"></section>
+
+        <h2 class="checkout-title">Checkout</h2>
+
+        <section class="checkout-layout">
+            <section class="checkout-left">
+                <section class="checkout-address-box">
+                    <h3>Shipping Address</h3>
+
+                    <p class="address-note">Delivery at home or a desired address.</p>
+
+                    <form class="checkout-address-form" id="checkoutAddressForm" novalidate>
+                        <label class="form-field full custom-select-field">
+                            <div class="custom-select" id="countrySelect">
+                                <button type="button" class="custom-select-btn" id="countrySelectBtn">
+                                    <span class="custom-select-value" id="countrySelectValue">
+                                        Australia
+                                    </span>
+
+                                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none">
+                                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+
+                                <ul class="custom-select-options" id="countryOptions">
+                                    <li data-value="Australia">Australia</li>
+                                    <li data-value="China">China</li>
+                                    <li data-value="New Zealand">New Zealand</li>
+                                    <li data-value="United Kingdom">United Kingdom</li>
+                                    <li data-value="United States">United States</li>
+                                    <li data-value="Canada">Canada</li>
+                                </ul>
+                            </div>
+
+                            <input type="hidden" id="countryInput" value="Australia">
+
+                            <span class="floating-label">Country*</span>
+
+                            <p class="error-message"></p>
+                        </label>
+
+                        <section class="name-row full">
+                            <label class="form-field">
+                                <input type="text" id="firstNameInput" name="firstName" value="YUNYANG" required>
+
+                                <span class="floating-label">First name*</span>
+
+                                <p class="error-message"></p>
+                            </label>
+
+                            <label class="form-field">
+                                <input type="text" id="lastNameInput" name="lastName" value="ZHAO" required>
+
+                                <span>Last name*</span>
+
+                                <p class="error-message"></p>
+                            </label>
+                        </section>
+
+                        <section class="street-row full">
+                            <label class="form-field">
+                                <input type="text" id="unitInput" name="unit" value="0916" required>
+
+                                <span>Unit*</span>
+
+                                <p class="error-message"></p>
+                            </label>
+
+                            <label class="form-field">
+                                <input type="text" id="streetNumberInput" name="streetNumber" value="136" required>
+
+                                <span>Street number*</span>
+
+                                <p class="error-message"></p>
+                            </label>
+
+                            <label class="form-field">
+                                <input type="text" id="streetNameInput" name="streetName" value="Leicester St" required>
+
+                                <span>Street name*</span>
+
+                                <p class="error-message"></p>
+                            </label>
+                        </section>
+
+                        <label class="form-field">
+                            <input type="text" id="suburbInput" name="suburb" value="Melbourne" required>
+
+                            <span>Suburb*</span>
+
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="form-field custom-select-field" id="stateSelectField">
+                            <div class="custom-select" id="stateSelect">
+                                <button type="button" class="custom-select-btn" id="stateSelectBtn">
+                                    <span class="custom-select-value" id="stateSelectValue">
+                                        Victoria
+                                    </span>
+
+                                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none">
+                                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+
+                                <ul class="custom-select-options" id="stateOptions" >
+                                    <li data-value="Australian Capital Territory">Australian Capital Territory</li>
+                                    <li data-value="New South Wales">New South Wales</li>
+                                    <li data-value="Northern Territory">Northern Territory</li>
+                                    <li data-value="Queensland">Queensland</li>
+                                    <li data-value="South Australia">South Australia</li>
+                                    <li data-value="Tasmania">Tasmania</li>
+                                    <li data-value="Victoria">Victoria</li>
+                                    <li data-value="Western Australia">Western Australia</li>
+                                </ul>
+                            </div>
+
+                            <input type="hidden" id="stateInput" value="Victoria">
+
+                            <span>State/territory*</span>
+
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="form-field hidden" id="stateTextField">
+                            <input type="text" id="stateTextInput" name="stateText">
+
+                            <span>State/territory*</span>
+
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="form-field">
+                            <input type="text" id="postcodeInput" name="postcode" value="3053" required>
+
+                            <span>Postcode*</span>
+                            
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="form-field full phone-field">
+                            <input type="text" id="phoneInput" name="phone" value="411234567" required>
+                            
+                            <span class="phone-label">Phone number*</span>
+
+                            <span class="phone-prefix">+61</span>
+
+                            <p class="error-message"></p>
+                        </label>
+                    </form>
+                </section>
+
+                <section class="checkout-payment-box">
+                    <h3>Payment Method</h3>
+
+                    <section class="payment-option">
+                        <label>
+                            <input type="radio" name="checkoutPayment" value="card">
+                            <span>Credit or Debit Card</span>
+                        </label>
+
+                        <div class="payment-icons">
+                            <img src="images/Shopping Cart/visa.jpg" alt="Visa">
+                            <img src="images/Shopping Cart/mastercard.jpg" alt="Mastercard">
+                        </div>
+                    </section>
+
+                    <section class="card-payment-panel payment-panel" id="cardPanel">
+                        <label class="form-field full">
+                            <input type="text" id="cardNumberInput">
+                            <span>Card number*</span>
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="form-field">
+                            <input type="text" id="expiryInput" maxlength="7">
+                            <span>Expiration date (MM / YY)*</span>
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="form-field">
+                            <input type="text" id="securityCodeInput">
+                            <span>Security code*</span>
+                            <p class="error-message"></p>
+                        </label>
+
+                        <label class="form-field full">
+                            <input type="text" id="cardNameInput">
+                            <span>Name on card*</span>
+                            <p class="error-message"></p>
+                        </label>
+                    </section>
+
+                    <section class="payment-option">
+                        <label>
+                            <input type="radio" name="checkoutPayment" value="paypal">
+                            <span>PayPal</span>
+                        </label>
+
+                        <div class="payment-icons">
+                            <img src="images/Shopping Cart/paypal.jpg" alt="paypal">
+                        </div>
+                    </section>
+
+                    <section class="redirect-panel payment-panel" id="paypalPanel">
+                        You'll be redirected to PayPal to complete your purchase.
+                    </section>
+
+                    <section class="payment-option">
+                        <label>
+                            <input type="radio" name="checkoutPayment" value="applepay">
+                            <span>Apple Pay</span>
+                        </label>
+
+                        <div class="payment-icons">
+                            <img src="images/Shopping Cart/applepay.jpg" alt="Apple Pay">
+                        </div>
+                    </section>
+
+                    <section class="redirect-panel payment-panel" id="applePanel">
+                        You'll be redirected to Apple Pay to complete your purchase.
+                    </section>
+                </section>
+
+                <section class="add-order-box">
+                    <div class="add-order-title">
+                        <h3>Add with This Order</h3>
+                        <button type="button" id="seeMoreBtn">See More ↻</button>
+                    </div>
+
+                    <div id="addOrderProduct"></div>
+                </section>
+            </section>
+
+            <aside class="checkout-cart-box">
+                <h3 id="checkoutCartTitle">Shopping Cart (0)</h3>
+
+                <section id="checkoutItems"></section>
+
+                <div class="summary-line"></div>
+
+                <section class="summary-row">
+                    <span>Sub Total</span>
+                    <strong id="checkoutSubtotal">$0.00</strong>
+                </section>
+
+                <section class="summary-row">
+                    <span>Shipping</span>
+                    <strong id="checkoutShipping">$0.00</strong>
+                </section>
+
+                <section class="summary-row total">
+                    <span>Total</span>
+                    <strong id="checkoutTotal">$0.00</strong>
+                </section>
+
+                <button type="button" class="pay-btn" id="payBtn">Pay $0.00</button>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer-column" aria-labelledby="footer-shop">
+            <h4>Shop</h4>
+            <ul>
+                <li><a href="#">Shampoo</a></li>
+                <li><a href="#">Conditioner</a></li>
+                <li><a href="#">Styling</a></li>
+                <li><a href="#">Treatments</a></li>
+                <li><a href="#">Hair Tools</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-column" aria-labelledby="footer-learn">
+            <h4>Learn</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-column" aria-labelledby="footer-care">
+            <h4>Customer Care</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-brand">
+            <h3>Kusco-Murphy</h3>
+            <p id="location">Melbourne, Australia</p>
+            <p id="email">enquiries@kuscomurphy.com.au</p>
+            <p id="company">© Kusco Murphy International Products Pty Ltd</p>
+        </section>
+    </footer>
+    
+    <script src="script.js"></script>    
+</body>
+</html>
