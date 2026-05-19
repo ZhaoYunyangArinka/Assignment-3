@@ -4,11 +4,23 @@
   padding: 0;
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   font-family: Georgia, "Times New Roman", serif;
   background-color: #FFF7F1;
   color: #332D29;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 li {

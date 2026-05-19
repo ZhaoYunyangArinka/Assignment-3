@@ -214,14 +214,13 @@ const defaultSearchHistory = [
 
 // Get search history from sessionStorage
 function getSearchHistory() {
-  const savedHistory = sessionStorage.getItem("searchHistory");
+  const savedHistory =
+    sessionStorage.getItem("searchHistory");
 
-  // Convert saved JSON string back into an array
-  if (savedHistory) {
+  if (savedHistory !== null) {
     return JSON.parse(savedHistory);
   }
 
-  // Use default history if nothing has been saved
   return [...defaultSearchHistory];
 }
 
@@ -232,31 +231,42 @@ function saveSearchHistory(history) {
 
 // Render search history into two columns
 function renderSearchHistory() {
-  // Stop if history container does not exist
   if (historyList === null) return;
 
-  // Only show the latest 8 search terms
   const history = getSearchHistory().slice(0, 8);
-
-  // Clear old history before rendering new content
   historyList.innerHTML = "";
 
-  // Create left and right columns
+  if (history.length === 0) {
+    const emptyMessage = document.createElement("p");
+    emptyMessage.classList.add("empty-history-message");
+    emptyMessage.textContent = "Go search something first.";
+    historyList.appendChild(emptyMessage);
+    return;
+  }
+
+  if (window.innerWidth <= 600) {
+    history.forEach(keyword => {
+      const link = document.createElement("a");
+      link.href = "Search Result.html?search=" + encodeURIComponent(keyword);
+      link.textContent = keyword;
+      historyList.appendChild(link);
+    });
+
+    setupMobileHistoryExpand();
+    return;
+  }
+
   const leftColumn = document.createElement("div");
   const rightColumn = document.createElement("div");
 
   leftColumn.classList.add("history-column");
   rightColumn.classList.add("history-column");
 
-  // Loop through each search keyword
   history.forEach((keyword, index) => {
-    // Create clickable search link
     const link = document.createElement("a");
-    // Jump to search result page with the keyword
     link.href = "Search Result.html?search=" + encodeURIComponent(keyword);
     link.textContent = keyword;
 
-    // First 4 items go left, remaining go right
     if (index < 4) {
       leftColumn.appendChild(link);
     } else {
@@ -264,7 +274,6 @@ function renderSearchHistory() {
     }
   });
 
-  // Add both columns into the history container
   historyList.appendChild(leftColumn);
   historyList.appendChild(rightColumn);
 }
@@ -717,3 +726,248 @@ if (recommendProducts && recommendPrev && recommendNext) {
     });
   });
 }
+
+const mobileMenuButton = document.querySelector(".mobile-menu-button");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+const mobileShopToggle = document.querySelector(".mobile-shop-toggle");
+const mobileBrandToggle = document.querySelector(".mobile-brand-toggle");
+const mobileTypeToggle = document.querySelector(".mobile-type-toggle");
+
+function closeMobileMenu() {
+  if (!siteHeader || !mobileMenu) return;
+
+  siteHeader.classList.remove("mobile-menu-active");
+  mobileMenu.classList.remove("shop-open", "brand-open", "type-open");
+  document.body.classList.remove("mobile-panel-open");
+}
+
+function closeMobileSearch() {
+  if (!siteHeader) return;
+
+  siteHeader.classList.remove("search-panel-active");
+  document.body.classList.remove("mobile-panel-open");
+}
+
+function setupMobileHistoryExpand() {
+  if (window.innerWidth > 600 || historyList === null) return;
+
+  let expandBtn = historyList.querySelector(".history-expand-btn");
+
+  if (expandBtn === null) {
+    expandBtn = document.createElement("button");
+    expandBtn.type = "button";
+    expandBtn.classList.add("history-expand-btn");
+    expandBtn.innerHTML = `
+      <svg viewBox="0 0 24 24">
+        <path d="M6 9L12 15L18 9"></path>
+      </svg>
+    `;
+    historyList.appendChild(expandBtn);
+  }
+
+  const historyItems = Array.from(historyList.querySelectorAll("a"));
+
+  historyItems.forEach(item => {
+    item.classList.remove("history-hidden");
+    item.style.display = "";
+  });
+
+  historyList.classList.remove("history-expanded");
+  expandBtn.classList.remove("active", "expanded");
+
+  requestAnimationFrame(() => {
+    const lineTops = [];
+
+    historyItems.forEach(item => {
+      if (!lineTops.includes(item.offsetTop)) {
+        lineTops.push(item.offsetTop);
+      }
+    });
+
+    if (lineTops.length <= 2) return;
+
+    const secondLineTop = lineTops[1];
+
+    historyItems.forEach(item => {
+      if (item.offsetTop > secondLineTop) {
+        item.classList.add("history-hidden");
+      }
+    });
+
+    expandBtn.classList.add("active");
+  });
+
+  expandBtn.onclick = () => {
+    const expanded = historyList.classList.toggle("history-expanded");
+
+    historyList.querySelectorAll(".history-hidden").forEach(item => {
+      item.style.display = "";
+    });
+
+    expandBtn.classList.toggle("expanded", expanded);
+  };
+}
+
+if (mobileMenuButton && mobileMenu) {
+  mobileMenuButton.addEventListener("click", event => {
+    if (window.innerWidth > 600) return;
+
+    event.stopPropagation();
+
+    closeMobileSearch();
+
+    siteHeader.classList.toggle("mobile-menu-active");
+
+    document.body.classList.toggle(
+      "mobile-panel-open",
+      siteHeader.classList.contains("mobile-menu-active")
+    );
+  });
+}
+
+if (searchTrigger && searchPanel) {
+  searchTrigger.addEventListener("click", event => {
+    if (window.innerWidth > 600) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    closeMobileMenu();
+
+    siteHeader.classList.toggle("search-panel-active");
+
+    document.body.classList.toggle(
+      "mobile-panel-open",
+      siteHeader.classList.contains("search-panel-active")
+    );
+
+    renderSearchHistory();
+    setupMobileHistoryExpand();
+
+    if (searchInput) {
+      searchInput.focus();
+    }
+  }, true);
+}
+
+if (mobileShopToggle && mobileMenu) {
+  mobileShopToggle.addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    mobileMenu.classList.toggle("shop-open");
+  });
+}
+
+if (mobileBrandToggle && mobileMenu) {
+  mobileBrandToggle.addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    mobileMenu.classList.toggle("brand-open");
+    mobileMenu.classList.remove("type-open");
+  });
+}
+
+if (mobileTypeToggle && mobileMenu) {
+  mobileTypeToggle.addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    mobileMenu.classList.toggle("type-open");
+    mobileMenu.classList.remove("brand-open");
+  });
+}
+
+if (mobileMenu) {
+  mobileMenu.addEventListener("click", event => {
+    event.stopPropagation();
+  });
+}
+
+if (searchPanel) {
+  searchPanel.addEventListener("click", event => {
+    event.stopPropagation();
+  });
+}
+
+document.addEventListener("click", event => {
+  if (window.innerWidth > 600) return;
+
+  if (siteHeader && !siteHeader.contains(event.target)) {
+    closeMobileMenu();
+    closeMobileSearch();
+  }
+});
+
+const clearHistoryBtn = document.querySelector(".clear-history-btn");
+const refreshSuggestedBtn = document.querySelector(".refresh-suggested-btn");
+
+const suggestedKeywords = [
+  "Dry Hair",
+  "Frizzy Hair",
+  "Damaged Hair",
+  "Oily Scalp",
+  "Repair Treatment",
+  "Scalp Care",
+  "Conditioner",
+  "Shampoo",
+  "Hair Mask",
+  "Styling Cream"
+];
+
+function renderSuggestedSearches() {
+  const keywordLinks = document.querySelectorAll(".search-keywords a");
+
+  const shuffledKeywords = [...suggestedKeywords]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, keywordLinks.length);
+
+  keywordLinks.forEach((link, index) => {
+    link.textContent = shuffledKeywords[index];
+    link.href =
+      "Search Result.html?search=" +
+      encodeURIComponent(shuffledKeywords[index]);
+  });
+}
+
+if (clearHistoryBtn) {
+  clearHistoryBtn.addEventListener("click", () => {
+    saveSearchHistory([]);
+    renderSearchHistory();
+  });
+}
+
+if (refreshSuggestedBtn) {
+  refreshSuggestedBtn.addEventListener("click", () => {
+    renderSuggestedSearches();
+  });
+}
+
+window.addEventListener("resize", () => {
+  renderSearchHistory();
+});
+
+const mobileFooterToggles = document.querySelectorAll(".mobile-footer-toggle");
+
+mobileFooterToggles.forEach(toggle => {
+
+    toggle.addEventListener("click", () => {
+
+        const currentColumn = toggle.closest(".mobile-footer-column");
+
+        const isAlreadyOpen = currentColumn.classList.contains("active");
+
+        document.querySelectorAll(".mobile-footer-column").forEach(column => {
+            column.classList.remove("active");
+        });
+
+        if (!isAlreadyOpen) {
+            currentColumn.classList.add("active");
+        }
+
+    });
+
+});
