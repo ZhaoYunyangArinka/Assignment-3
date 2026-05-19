@@ -1,0 +1,211 @@
+main.confirmed-page {
+  padding: 9vw 8.8vw 4vw;
+}
+
+/* ———————————————————— Title ———————————————————— */
+.confirmed-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.8vw;
+  text-align: center;
+  color: #332D29;
+  margin: 2.4vw 0 2.4vw;
+}
+
+/* ———————————————————— Main Confirmed Box ———————————————————— */
+.confirmed-box {
+  width: 100%;
+  background-color: #EEDECF;
+  border-radius: 0.35vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  overflow: hidden;
+}
+
+/* ———————————————————— Top Message ———————————————————— */
+.confirmed-message-box {
+  grid-column: 1 / 3;
+  padding: 2vw 2.4vw 1.2vw;
+  text-align: center;
+}
+
+.confirmed-message-box h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.5vw;
+  font-weight: 600;
+  margin-bottom: 0.3vw;
+  color: #332D29;
+}
+
+.confirmed-message-box p {
+  font-family: "Kurale", serif;
+  font-size: 0.95vw;
+  color: #6E5641;
+}
+
+/* ———————————————————— Left Section ———————————————————— */
+.confirmed-left-box {
+  padding: 0.8vw 2.4vw 2vw;
+  border-right: 0.08vw dashed #B69E91;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* address */
+.confirmed-address {
+  display: grid;
+  grid-template-columns: 1.6vw 1fr;
+  column-gap: 1vw;
+  align-items: start;
+}
+
+.confirmed-truck {
+  width: 1.5vw;
+  height: 1.6vw;
+  color: #332D29;
+  margin-top: 0.15vw;
+}
+
+.confirmed-address p {
+  margin: 0;
+}
+
+#successAddress {
+  max-width: 28vw;
+  font-family: "Neuton", serif;
+  font-weight: 300;
+  font-size: 1.25vw;
+  line-height: 1.3;
+  color: #4A433D;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.confirmed-user-line {
+  display: flex;
+  gap: 0.8vw;
+}
+
+/* username */
+#successUserName {
+  font-family: "Marcellus", serif;
+  font-size: 0.92vw;
+  font-weight: 450;
+  color: #4A433D;
+  margin-top: 0.5vw;
+}
+
+/* phone */
+#successPhone {
+  font-family: "Afacad", serif;
+  font-size: 1.1vw;
+  font-weight: 400;
+  color: #4A433D;
+  margin-top: 0.32vw;
+}
+
+/* ———————————————————— Product Images ———————————————————— */
+.confirmed-products {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.2vw;
+  margin-top: 1.8vw;
+  margin-left: 2.6vw;
+}
+
+.confirmed-image-list {
+  display: flex;
+  gap: 0.65vw;
+}
+
+.confirmed-image-list img {
+  width: 4.5vw;
+  height: 4.5vw;
+  object-fit: cover;
+  border-radius: 0.2vw;
+}
+
+.confirmed-item-number {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35vw;
+  margin-bottom: 0.05vw;
+}
+
+/* Item number: */
+.confirmed-item-number .item-label {
+  font-family: "Fraunces", serif;
+  font-weight: 350;
+  font-size: 1vw;
+  color: #4A433D;
+}
+
+/* actual number */
+#successItemCount {
+  font-family: "Afacad", serif;
+  font-size: 1.05vw;
+  color: #4A433D;
+}
+
+/* ———————————————————— Right Section ———————————————————— */
+.confirmed-right-box {
+  padding: 0.8vw 2.4vw 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.confirmed-detail-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.confirmed-detail-row h3 {
+  font-family: "Neuton", serif;
+  font-size: 1.25vw;
+  font-weight: 300;
+  color: #4A433D;
+  margin: 0;
+}
+
+.confirmed-detail-row p {
+  font-family: "Afacad", sans-serif;
+  font-size: 1.18vw;
+  font-weight: 400;
+  color: #4A433D;
+  margin: 0;
+}
+
+.confirmed-detail-row:last-child h3 {
+  font-weight: 500;
+  font-size: 1.35vw;
+}
+
+.confirmed-detail-row:last-child p {
+  font-weight: 600;
+  font-size: 1.28vw;
+}
+
+.confirmed-continue-btn {
+  width: 100%;
+  height: 3.2vw;
+  margin-top: 1.5vw;
+  border-radius: 0.35vw;
+  background-color: #A88571;
+  color: #FCFBFB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fraunces", serif;
+  font-size: 1.1vw;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.confirmed-continue-btn:hover {
+  background-color: #856858;
+}

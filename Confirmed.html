@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Base.css">
     <link rel="stylesheet" href="Layout.css">
     <link rel="stylesheet" href="Components.css">
-    <link rel="stylesheet" href="Shopping Cart.css">
+    <link rel="stylesheet" href="Confirmed.css">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,104 +133,79 @@
         </section>
     </header>
 
-    <main class="cart-page">
-        <section class="breadcrumb" id="breadcrumb"></section>
+    <main class="confirmed-page">
+        <section class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>|</span>
+            <span>Order Confirmed</span>
+        </section>
 
-        <h2 id="cartTitle" class="cart-title">Shopping Cart (0)</h2>
+        <h2 class="confirmed-title">Order Confirmed</h2>
 
-        <section class="cart-layout">
-            <section class="cart-items" id="cartItems"></section>
+        <section class="confirmed-box">
+            <section class="confirmed-message-box">
+                <h3>Your order has been placed successfully.</h3>
 
-            <aside class="order-summary">
-                <h3>Order summary</h3>
+                <p>
+                    A confirmation email has been sent to your address.
+                </p>
+            </section>
 
-                <section class="summary-address">
-                    <svg viewBox="0 0 24 24" class="location-pin">
-                        <path
-                            d="M12 21C12 21 5 14.8 5 9.5C5 5.6 8.1 2.5 12 2.5C15.9 2.5 19 5.6 19 9.5C19 14.8 12 21 12 21Z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linejoin="round"
-                        />
-                        <circle cx="12" cy="9.5" r="2" fill="currentColor" />
+            <section class="confirmed-left-box">
+                <section class="confirmed-address">
+                    <svg viewBox="0 0 24 24" class="confirmed-truck">
+                        <path d="M3 7h11v9H3z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M14 10h3.5L21 13.5V16h-7z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                        <circle cx="7" cy="17.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                        <circle cx="17.5" cy="17.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.7"/>
                     </svg>
 
-                    <p>The University of Melbourne, Victoria 3010 Australia</p>
+                    <div>
+                        <p id="successAddress"></p>
 
-                    <span>User Name</span>
-
-                    <span>+61 411234567</span>
-
-                    <button type="button" class="edit-address">✎</button>
+                        <p class="confirmed-user-line">
+                            <span id="successUserName"></span>
+                            <span id="successPhone"></span>
+                        </p>
+                    </div>
                 </section>
 
-                <div class="summary-line"></div>
+                <section class="confirmed-products">
+                    <div class="confirmed-image-list" id="confirmedImageList"></div>
 
-                <section class="summary-row">
-                    <span>Sub Total</span>
-                    <strong id="summarySubtotal">$0.00</strong>
+                    <p class="confirmed-item-number">
+                        <span class="item-label">
+                            Item number:
+                        </span>
+
+                        <span id="successItemCount">
+                            0
+                        </span>
+                    </p>
                 </section>
+            </section>
 
-                <section class="summary-row">
-                    <span>Shipping</span>
-                    <strong id="summaryShipping">$0.00</strong>
-                </section>
+            <section class="confirmed-right-box">
+                <div class="confirmed-detail-row">
+                    <h3>Order Number</h3>
+                    <p id="successOrderNumber"></p>
+                </div>
 
-                <section class="summary-row total">
-                    <span>Total</span>
-                    <strong id="summaryTotal">$0.00</strong>
-                </section>
+                <div class="confirmed-detail-row">
+                    <h3>Estimated Delivery</h3>
+                    <p id="estimatedDelivery"></p>
+                </div>
 
-                <div class="summary-line"></div>
-
-                <section class="payment-method">
-                    <h4>Payment Method</h4>
-
-                    <label class="payment-option">
-                        <section class="payment-left">
-                            <input type="radio" name="payment" value="card" checked>
-
-                            <span>Credit or Debit Card</span>
-                        </section>
-
-                        <section class="payment-icons">
-                            <img src="images/Shopping Cart/visa.jpg" alt="Visa">
-
-                            <img src="images/Shopping Cart/mastercard.jpg" alt="Mastercard">
-                        </section>
-                    </label>
-
-                    <label class="payment-option">
-                        <section class="payment-left">
-                            <input type="radio" name="payment" value="paypal">
-
-                            <span>PayPal</span>
-                        </section>
-
-                        <section class="payment-icons">
-                            <img src="images/Shopping Cart/paypal.jpg" alt="PayPal">
-                        </section>
-                    </label>
-
-                    <label class="payment-option">
-                        <section class="payment-left">
-                            <input type="radio" name="payment" value="applepay">
-
-                            <span>Apple Pay</span>
-                        </section>
-
-                        <section class="payment-icons">
-                            <img src="images/Shopping Cart/applepay.jpg" alt="Apple Pay">
-                        </section>
-                    </label>
-                </section>
-
-                <button type="button" class="checkout-btn" id="checkoutBtn">
-                Proceed To Checkout
-                </button>
-            </aside>
+                <div class="confirmed-detail-row">
+                    <h3>Amount Paid</h3>
+                    <p id="successAmountPaid">$0.00</p>
+                </div>
+            </section>
         </section>
+
+        <a href="index.html" class="confirmed-continue-btn">
+            Continue Shopping
+        </a>
 
         <section class="recommend-section">
             <h2>You may also like</h2>
@@ -293,6 +268,6 @@
     
     <script src="Data.js"></script>
     <script src="Global.js"></script>
-    <script src="Shopping Cart.js"></script>  
+    <script src="Confirmed.js"></script> 
 </body>
 </html>
