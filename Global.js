@@ -893,6 +893,14 @@ if (searchPanel) {
   });
 }
 
+const mobileSearchBack = document.querySelector(".mobile-search-back");
+
+if (mobileSearchBack) {
+  mobileSearchBack.addEventListener("click", () => {
+    closeMobileSearch();
+  });
+}
+
 document.addEventListener("click", event => {
   if (window.innerWidth > 600) return;
 
