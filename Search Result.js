@@ -92,7 +92,7 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
               <img class="hover-img" src="` + product.images.hover + `" alt="` + product.name + `">
             </div>
 
-            <figcaption>` + product.name + `</figcaption>
+            <figcaption>` + getProductCardName(product.name) + `</figcaption>
           </figure>
 
           <p class="size">` + product.size + `</p>
@@ -104,7 +104,15 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
         </a>
 
         <button type="button" class="add-to-cart">
-          Add to Cart
+          <span class="add-to-cart-text">Add to Cart</span>
+
+          <span class="add-to-cart-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 7V17"></path>
+              <path d="M7 12H17"></path>
+            </svg>
+          </span>
         </button>
       `;
     } else {
@@ -117,7 +125,7 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
 
               <img class="hover-img" src="` + product.images.hover + `" alt="` + product.name + `">
             </div>
-            <figcaption>` + product.name + `</figcaption>
+            <figcaption>` + getProductCardName(product.name) + `</figcaption>
           </figure>
 
           <p class="size">` + product.size + `</p>
@@ -137,6 +145,22 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
     return article;
   }
 
+  function getBlogCardTitle(title) {
+    let maxLength;
+
+    if (window.innerWidth <= 600) {
+      maxLength = 45;
+    } else {
+      maxLength = 60;
+    }
+
+    if (title.length > maxLength) {
+      return title.substring(0, maxLength) + "...";
+    }
+
+    return title;
+  }
+
   // Generate a blog card dynamically
   function renderBlogCard(blog) {
     const article = document.createElement("article");
@@ -147,7 +171,7 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
         <figure>
           <img src="` + blog.image + `" alt="` + blog.title + `">
 
-          <figcaption>` + blog.title + `</figcaption> 
+          <figcaption>` + getBlogCardTitle(blog.title) + `</figcaption>
         </figure>
         <p class="Date">
           Publication Date: ` + blog.date + `
@@ -252,6 +276,24 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
     }
   }
 
+  function updateRecommendVisibility() {
+    if (recommendSection === null) return;
+
+    if (window.innerWidth > 600) {
+      recommendSection.style.display = "";
+      return;
+    }
+
+    if (
+      currentResultType === "product" &&
+      currentProducts.length === 0
+    ) {
+      recommendSection.style.display = "";
+    } else {
+      recommendSection.style.display = "none";
+    }
+  }
+
   // Render different sort options for product or blog tab
   function renderSortOptions(type) {
     let options;
@@ -285,21 +327,14 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
     if (targetId === "blogResults") {
       currentResultType = "blog";
       renderSortOptions("blog");
-
-      if (recommendSection) {
-        recommendSection.style.display = "none";
-      }
     } else {
       currentResultType = "product";
       renderSortOptions("product");
-
-      if (recommendSection) {
-        recommendSection.style.display = "";
-      }
     }
 
     updateSearchTitle();
     updateSortVisibility();
+    updateRecommendVisibility();
   }
 
   // Sort product results
@@ -400,6 +435,7 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
   // Initial rendering
   renderProducts(currentProducts);
   renderBlogs(currentBlogs);
+  updateRecommendVisibility();
 
   // Bind tab switching
   resultTabs.forEach(tab => {
@@ -437,6 +473,14 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
   document.addEventListener("click", () => {
     sortBox.classList.remove("active");
   });
+
+  const viewToggle = document.getElementById("viewToggle");
+
+  if (viewToggle) {
+    viewToggle.addEventListener("click", () => {
+      productSection.classList.toggle("list-view");
+    });
+  }
 
   // Start with product results tab
   switchResultTab("productResults");

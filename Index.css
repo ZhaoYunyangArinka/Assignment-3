@@ -1094,10 +1094,11 @@
 
   .hero p {
     margin: 2vw 0 3vw;
-    font-size: 2.4vw;
+    font-size: 3.6vw;
   }
 
   .primary-button {
+    margin-top: 3.2vw;
     padding: 1.8vw 4.5vw;
     border-radius: 1.2vw;
     font-size: 2.4vw;

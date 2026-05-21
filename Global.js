@@ -194,6 +194,22 @@ function showCartModal(addedProducts) {
   modalOverlay.classList.add("active");
 }
 
+function getProductCardName(name) {
+  let maxLength;
+
+  if (window.innerWidth <= 600) {
+    maxLength = 24;
+  } else {
+    maxLength = 32;
+  }
+
+  if (name.length > maxLength) {
+    return name.substring(0, maxLength) + "...";
+  }
+
+  return name;
+}
+
 // —————————————————————————————— Search ——————————————————————————————
 // Select all required search panel elements from the page
 const searchTrigger = document.querySelector(".search-trigger");
@@ -573,7 +589,7 @@ if (recommendProducts) {
 
           </div>
 
-          <figcaption>` + product.name + `</figcaption>
+          <figcaption>` + getProductCardName(product.name) + `</figcaption>
 
         </figure>
 
@@ -587,7 +603,15 @@ if (recommendProducts) {
       </a>
 
       <button type="button" class="add-to-cart">
-        Add to Cart
+        <span class="add-to-cart-text">Add to Cart</span>
+
+        <span class="add-to-cart-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 7V17"></path>
+            <path d="M7 12H17"></path>
+          </svg>
+        </span>
       </button>
     `;
   } else {
@@ -604,7 +628,7 @@ if (recommendProducts) {
             <img class="hover-img" src="` + product.images.hover + `" alt="` + product.name + `">
           </div>
 
-          <figcaption>` + product.name + `</figcaption>
+          <figcaption>` + getProductCardName(product.name) + `</figcaption>
         </figure>
 
         <p class="size">` + product.size + `</p>
@@ -616,7 +640,7 @@ if (recommendProducts) {
       </div>
 
       <button type="button"  class="out-of-stock" disabled >
-        Out of stock
+        ut of stockOut of stock
       </button>
     `;
   }
