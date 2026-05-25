@@ -115,11 +115,8 @@ if (productPage) {
 
     thumbnailList.innerHTML = "";
 
-    const galleryImages = [
-      ...currentProduct.images.gallery.slice(3),
-      ...currentProduct.images.gallery,
-      ...currentProduct.images.gallery.slice(0, 2)
-    ];
+    const galleryImages =
+      currentProduct.images.gallery;
 
     galleryImages.forEach((image, index) => {
       const li = document.createElement("li");
@@ -154,11 +151,25 @@ if (productPage) {
       benefitList.appendChild(li);
     });
 
+    function truncateProductTitle(title, maxLength) {
+      if (title.length <= maxLength) {
+        return title;
+      }
+
+      return title.slice(0, maxLength) + "...";
+    }
     // Render related product
     const goesWellContainer =
       document.getElementById("goesWellContainer");
 
     goesWellContainer.innerHTML = "";
+
+    const mobileGoesWellContainer =
+      document.getElementById("mobileGoesWellContainer");
+
+    if (mobileGoesWellContainer) {
+      mobileGoesWellContainer.innerHTML = "";
+    }
 
     if (
       currentProduct.goesWellWith &&
@@ -191,7 +202,7 @@ if (productPage) {
 
               <div class="mini-product-info">
                 <h3>` +
-          relatedProduct.name +
+          truncateProductTitle(relatedProduct.name, 20) +
           `</h3>
 
                 <p>` +
@@ -213,6 +224,66 @@ if (productPage) {
           </article>
         `;
 
+        if (mobileGoesWellContainer) {
+          mobileGoesWellContainer.innerHTML =
+            `
+            <article class="mini-product-card">
+
+              <a href="Product Page.html?id=` +
+              relatedProduct.id +
+              `&from=product&trail=` +
+              [...trailIds, currentProduct.id].join(",") +
+              `" class="mini-product-link">
+
+                <div class="mini-product-image">
+                  <img src="` +
+              relatedProduct.images.card +
+              `" alt="` +
+              relatedProduct.name +
+              `">
+                </div>
+
+                <div class="mini-product-info">
+                  <h3>` +
+                truncateProductTitle(relatedProduct.name, 22) +
+                `</h3>
+
+                  <p>` +
+              relatedProduct.size +
+              `</p>
+                </div>
+
+                <p class="mini-price">
+                  $` +
+              relatedProduct.price.toFixed(2) +
+              ` <span>inc GST</span>
+                </p>
+              </a>
+
+              <button type="button" class="add-to-cart mobile-related-add">
+                Add To Cart
+              </button>
+
+            </article>
+          `;
+
+          const mobileRelatedAddBtn =
+            mobileGoesWellContainer.querySelector(".mobile-related-add");
+
+          if (mobileRelatedAddBtn) {
+            mobileRelatedAddBtn.addEventListener("click", () => {
+              addProductToCart(relatedProduct.id, 1);
+
+              showCartModal([
+                {
+                  ...relatedProduct,
+                  quantity: 1
+                }
+              ]);
+            });
+          }
+        }
+        
         const relatedAddToCartBtn =
           goesWellContainer.querySelector(".add-to-cart");
 
@@ -322,6 +393,243 @@ if (productPage) {
       currentProduct.images.application,
       currentProduct.name
     );
+
+    // Render mobile intro content in text-image flow
+    function renderMobileIntroFlow(containerId, contentData, images, altText) {
+      const container = document.getElementById(containerId);
+
+      if (container === null) return;
+
+      container.innerHTML = "";
+
+      const title = document.createElement("h2");
+      title.textContent = contentData.title;
+      container.appendChild(title);
+
+      contentData.paragraphs.forEach((paragraph, index) => {
+        const p = document.createElement("p");
+        p.textContent = paragraph;
+        container.appendChild(p);
+
+        if (images[index]) {
+          const img = document.createElement("img");
+          img.src = images[index];
+          img.alt = altText + " image " + (index + 1);
+          container.appendChild(img);
+        }
+      });
+
+      if (images.length > contentData.paragraphs.length) {
+        images.slice(contentData.paragraphs.length).forEach((image, index) => {
+          const img = document.createElement("img");
+          img.src = image;
+          img.alt = altText + " image " + (index + 1);
+          container.appendChild(img);
+        });
+      }
+    }
+
+    renderMobileIntroFlow(
+      "mobileDescriptionFlow",
+      currentProduct.description,
+      currentProduct.images.description,
+      currentProduct.name
+    );
+
+    renderMobileIntroFlow(
+      "mobileApplicationFlow",
+      currentProduct.application,
+      currentProduct.images.application,
+      currentProduct.name
+    );
+
+    // —————————— Mobile Product Page ——————————
+    const mobileBackBtn =
+      document.querySelector(".mobile-product-back");
+
+    const mobileDescriptionToggle =
+      document.getElementById("mobileDescriptionToggle");
+
+    const mobileDescriptionBox =
+      document.querySelector(".mobile-description-box");
+
+    const mobileBottomAddBtn =
+      document.getElementById("mobileBottomAddBtn");
+
+    const mobileBottomBuyBtn =
+      document.getElementById("mobileBottomBuyBtn");
+
+    const mobileCartSheet =
+      document.getElementById("mobileCartSheet");
+
+    const mobileSheetClose =
+      document.getElementById("mobileSheetClose");
+
+    const mobileSheetImage =
+      document.getElementById("mobileSheetImage");
+
+    const mobileSheetPrice =
+      document.getElementById("mobileSheetPrice");
+
+    const mobileSheetSize =
+      document.getElementById("mobileSheetSize");
+
+    const mobileSheetMinus =
+      document.getElementById("mobileSheetMinus");
+
+    const mobileSheetPlus =
+      document.getElementById("mobileSheetPlus");
+
+    const mobileSheetQuantity =
+      document.getElementById("mobileSheetQuantity");
+
+    const mobileSheetAddBtn =
+      document.getElementById("mobileSheetAddBtn");
+
+    let mobileSheetQty = 1;
+
+    // Mobile back button
+    if (mobileBackBtn) {
+      mobileBackBtn.addEventListener("click", () => {
+        window.history.back();
+      });
+    }
+
+    // Open mobile bottom sheet
+    function openMobileCartSheet() {
+      if (mobileCartSheet === null) return;
+
+      mobileSheetQty = Number(quantityNumber.textContent) || 1;
+
+      if (mobileSheetImage) {
+        mobileSheetImage.src = currentProduct.images.card;
+        mobileSheetImage.alt = currentProduct.name;
+      }
+
+      if (mobileSheetPrice) {
+        mobileSheetPrice.textContent =
+          "$" + currentProduct.price.toFixed(2);
+      }
+
+      if (mobileSheetSize) {
+        mobileSheetSize.textContent = currentProduct.size;
+      }
+
+      if (mobileSheetQuantity) {
+        mobileSheetQuantity.textContent = mobileSheetQty;
+      }
+
+      updateMobileSheetQuantityState();
+
+      mobileCartSheet.classList.add("active");
+    }
+
+    // Close mobile bottom sheet
+    function closeMobileCartSheet() {
+      if (mobileCartSheet === null) return;
+
+      mobileCartSheet.classList.remove("active");
+    }
+
+    // Update mobile sheet minus button state
+    function updateMobileSheetQuantityState() {
+      if (
+        mobileSheetMinus === null ||
+        mobileSheetQuantity === null
+      ) {
+        return;
+      }
+
+      const leftDivider =
+        mobileCartSheet.querySelector(".left-divider");
+
+      mobileSheetQuantity.textContent = mobileSheetQty;
+
+      if (mobileSheetQty <= 1) {
+        mobileSheetMinus.disabled = true;
+
+        if (leftDivider) {
+          leftDivider.classList.add("disabled");
+        }
+
+      } else {
+        mobileSheetMinus.disabled = false;
+
+        if (leftDivider) {
+          leftDivider.classList.remove("disabled");
+        }
+      }
+    }
+
+    if (mobileBottomAddBtn) {
+      mobileBottomAddBtn.addEventListener("click", () => {
+        openMobileCartSheet();
+      });
+    }
+
+    if (mobileSheetClose) {
+      mobileSheetClose.addEventListener("click", () => {
+        closeMobileCartSheet();
+      });
+    }
+
+    if (mobileCartSheet) {
+      document.addEventListener("click", event => {
+        if (!mobileCartSheet.classList.contains("active")) return;
+
+        const clickedInsideSheet =
+          mobileCartSheet.contains(event.target);
+
+        const clickedOpenButton =
+          mobileBottomAddBtn &&
+          mobileBottomAddBtn.contains(event.target);
+
+        if (!clickedInsideSheet && !clickedOpenButton) {
+          closeMobileCartSheet();
+        }
+      }, true);
+    }
+
+    if (mobileSheetMinus) {
+      mobileSheetMinus.addEventListener("click", () => {
+        if (mobileSheetQty > 1) {
+          mobileSheetQty--;
+          updateMobileSheetQuantityState();
+        }
+      });
+    }
+
+    if (mobileSheetPlus) {
+      mobileSheetPlus.addEventListener("click", () => {
+        mobileSheetQty++;
+        updateMobileSheetQuantityState();
+      });
+    }
+
+    if (mobileSheetAddBtn) {
+      mobileSheetAddBtn.addEventListener("click", () => {
+        addProductToCart(currentProduct.id, mobileSheetQty);
+
+        closeMobileCartSheet();
+
+        showCartModal([
+          {
+            ...currentProduct,
+            quantity: mobileSheetQty
+          }
+        ]);
+      });
+    }
+
+    if (mobileBottomBuyBtn) {
+      mobileBottomBuyBtn.addEventListener("click", event => {
+        event.preventDefault();
+
+        addProductToCart(currentProduct.id, 1);
+
+        window.location.href = "Shopping Cart.html";
+      });
+    }
   }
 }
 
@@ -451,9 +759,44 @@ if (minusQty && plusQty && quantityNumber && leftDivider) {
 const benefitToggle = document.getElementById("benefitToggle");
 const benefitBox = document.querySelector(".benefit-box");
 
+const mobileDescriptionToggle =
+  document.getElementById("mobileDescriptionToggle");
+
+const mobileDescriptionBox =
+  document.querySelector(".mobile-description-box");
+
+if (mobileDescriptionToggle && mobileDescriptionBox) {
+  mobileDescriptionToggle.addEventListener("click", () => {
+    const isOpen = mobileDescriptionBox.classList.contains("open");
+
+    if (benefitBox) {
+      benefitBox.classList.remove("open");
+    }
+
+    if (isOpen) {
+      mobileDescriptionBox.classList.remove("open");
+    } else {
+      mobileDescriptionBox.classList.add("open");
+    }
+  });
+}
+
 if (benefitToggle && benefitBox) {
   benefitToggle.addEventListener("click", () => {
-    benefitBox.classList.toggle("open");
+    const mobileDescriptionBox =
+      document.querySelector(".mobile-description-box");
+
+    const isOpen = benefitBox.classList.contains("open");
+
+    if (mobileDescriptionBox) {
+      mobileDescriptionBox.classList.remove("open");
+    }
+
+    if (isOpen) {
+      benefitBox.classList.remove("open");
+    } else {
+      benefitBox.classList.add("open");
+    }
   });
 }
 
