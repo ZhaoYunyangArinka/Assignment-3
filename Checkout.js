@@ -55,7 +55,15 @@ if (checkoutPage) {
   const SHIPPING_FEE = 11;
 
   // Checkout data variables
-  let checkoutProducts = getCheckoutProducts();
+  const checkoutParams =
+    new URLSearchParams(window.location.search);
+
+  const checkoutMode =
+    checkoutParams.get("mode");
+
+  let checkoutProducts =
+    getCheckoutProducts();
+
   let expandedQtyControl = null;
   let addOrderSelected = false;
   let currentCountry = countryInput.value;
@@ -72,13 +80,34 @@ if (checkoutPage) {
 
   // Breadcrumb
   renderBreadcrumb([
-    { label: "Home", href: "index.html" },
+    { label: "Home", href: "Index.html" },
     { label: "Checkout" }
   ]);
 
   // Get products from shopping cart
   function getCheckoutProducts() {
-    return getCart()
+    let checkoutItems;
+
+    if (checkoutMode === "buy-now") {
+      const buyNowItem =
+        JSON.parse(localStorage.getItem("buyNowItem"));
+
+      if (buyNowItem === null) {
+        checkoutItems = [];
+      } else {
+        checkoutItems = [
+          {
+            id: buyNowItem.id,
+            quantity: 1
+          }
+        ];
+      }
+
+    } else {
+      checkoutItems = getCart();
+    }
+
+    return checkoutItems
       .map(item => {
         const product = products.find(product => product.id === item.id);
 
@@ -93,6 +122,10 @@ if (checkoutPage) {
   }
 
   function syncCart() {
+    if (checkoutMode === "buy-now") {
+      return;
+    }
+
     const updatedCart = checkoutProducts.map(product => {
       return {
         id: product.id,
@@ -438,20 +471,12 @@ if (checkoutPage) {
 
   // Check if value only contains numbers
   function isNumbersOnly(value) {
-
-    if (value.length < 2 || value.length > 30) {
-      showError(nameInput, "Name must be 2-30 characters");
-      return false;
-    }
+    if (value === "") return false;
 
     for (let i = 0; i < value.length; i++) {
-
       const character = value[i];
 
-      if (
-        character < "0" ||
-        character > "9"
-      ) {
+      if (character < "0" || character > "9") {
         return false;
       }
     }
@@ -1253,12 +1278,28 @@ if (checkoutPage) {
         countryInput.value,
 
       payment:
-        selectedPayment
+        selectedPayment,
+
+      mode:
+        checkoutMode || "cart"
     };
 
     localStorage.setItem(
       "checkoutInfo",
       JSON.stringify(checkoutInfo)
+    );
+
+    const orderCart =
+      checkoutProducts.map(product => {
+        return {
+          id: product.id,
+          quantity: product.quantity
+        };
+      });
+
+    localStorage.setItem(
+      "lastOrderCart",
+      JSON.stringify(orderCart)
     );
 
     window.location.href = "Confirmed.html";

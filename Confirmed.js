@@ -7,7 +7,7 @@ if (confirmedPage) {
     JSON.parse(localStorage.getItem("checkoutInfo"));
 
   const confirmedCart =
-    getCart();
+    JSON.parse(localStorage.getItem("lastOrderCart")) || getCart();
 
   const successAddress =
     document.getElementById("successAddress");
@@ -167,5 +167,12 @@ if (confirmedPage) {
     });
 
   // —————————— Clear Cart ——————————
-  localStorage.removeItem("shoppingCart");
+    if (
+    savedCheckoutInfo &&
+    savedCheckoutInfo.mode !== "buy-now"
+  ) {
+    localStorage.removeItem("shoppingCart");
+  }
+
+  localStorage.removeItem("buyNowItem");
 }

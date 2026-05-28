@@ -38,7 +38,7 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
 
   // —————————— Breadcrumb ——————————
   renderBreadcrumb([
-    { label: "Home", href: "index.html" },
+    { label: "Home", href: "Index.html" },
     { label: "Search Results" }
   ]);
 
@@ -75,6 +75,7 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
     const article = document.createElement("article");
 
     article.classList.add("product-card");
+    article.dataset.productId = product.id;
 
     const productLink = getProductLink(product);
 
@@ -398,11 +399,10 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
 
         const card = button.closest(".product-card");
 
-        const productName =
-          card.querySelector("figcaption").textContent.trim();
+        const productId = card.dataset.productId;
 
         const targetProduct = products.find(product => {
-          return product.name === productName;
+          return product.id === productId;
         });
 
         if (targetProduct) {

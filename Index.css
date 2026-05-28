@@ -133,7 +133,7 @@
 
 /* Icon click area */
 .header-home .nav-icons-left a,
-.header-home .nav-icons-left button
+.header-home .nav-icons-left button,
 .header-home .nav-icons-right a {
   width: 2.4vw;
   height: 3.2vw;

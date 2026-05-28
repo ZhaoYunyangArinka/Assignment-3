@@ -32,7 +32,7 @@ if (productPage) {
     if (fromPage === "search") {
 
       renderBreadcrumb([
-        { label: "Home", href: "index.html" },
+        { label: "Home", href: "Index.html" },
         { label: "Search Results", href: "Search Result.html" },
         { label: currentProduct.name }
       ]);
@@ -40,14 +40,14 @@ if (productPage) {
     } else if (fromPage === "home") {
 
       renderBreadcrumb([
-        { label: "Home", href: "index.html" },
+        { label: "Home", href: "Index.html" },
         { label: currentProduct.name }
       ]);
 
     } else if (fromPage === "cart") {
 
       renderBreadcrumb([
-        { label: "Home", href: "index.html" },
+        { label: "Home", href: "Index.html" },
         { label: "Shopping Cart", href: "Shopping Cart.html" },
         { label: currentProduct.name }
       ]);
@@ -55,7 +55,7 @@ if (productPage) {
     } else if (fromPage === "product") {
 
       const breadcrumbItems = [
-        { label: "Home", href: "index.html" },
+        { label: "Home", href: "Index.html" },
       ];
 
       // Add previous related products into breadcrumb
@@ -81,7 +81,7 @@ if (productPage) {
     } else {
 
       renderBreadcrumb([
-        { label: "Home", href: "index.html" },
+        { label: "Home", href: "Index.html" },
         { label: "Products", href: "Products.html" },
         { label: currentProduct.name }
       ]);
@@ -308,12 +308,13 @@ if (productPage) {
     const productAddToCart =
       document.getElementById("productAddToCart");
 
+    const productBuyNow =
+      document.getElementById("productBuyNow");
+
     if (productAddToCart) {
-
       productAddToCart.addEventListener("click", () => {
-
         const quantity =
-          Number(document.getElementById("quantityNumber").textContent);
+          Number(document.getElementById("quantityNumber").textContent) || 1;
 
         addProductToCart(currentProduct.id, quantity);
 
@@ -324,6 +325,18 @@ if (productPage) {
           }
         ]);
       });
+    }
+    
+    function goToBuyNowCheckout() {
+      localStorage.setItem(
+        "buyNowItem",
+        JSON.stringify({
+          id: currentProduct.id,
+          quantity: 1
+        })
+      );
+
+      window.location.href = "Checkout.html?mode=buy-now";
     }
 
     // Fill description and application text
@@ -458,6 +471,20 @@ if (productPage) {
 
     const mobileBottomBuyBtn =
       document.getElementById("mobileBottomBuyBtn");
+
+      if (productBuyNow) {
+        productBuyNow.addEventListener("click", event => {
+          event.preventDefault();
+          goToBuyNowCheckout();
+        });
+      }
+
+      if (mobileBottomBuyBtn) {
+        mobileBottomBuyBtn.addEventListener("click", event => {
+          event.preventDefault();
+          goToBuyNowCheckout();
+        });
+      }
 
     const mobileCartSheet =
       document.getElementById("mobileCartSheet");
@@ -618,16 +645,6 @@ if (productPage) {
             quantity: mobileSheetQty
           }
         ]);
-      });
-    }
-
-    if (mobileBottomBuyBtn) {
-      mobileBottomBuyBtn.addEventListener("click", event => {
-        event.preventDefault();
-
-        addProductToCart(currentProduct.id, 1);
-
-        window.location.href = "Shopping Cart.html";
       });
     }
   }

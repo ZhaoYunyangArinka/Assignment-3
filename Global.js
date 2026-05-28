@@ -99,7 +99,7 @@ function showCartModal(addedProducts) {
       <img src="` + product.images.card + `" alt="` + product.name + `">
 
       <div>
-        <h3>` + product.name + `</h3>
+        <h3>` + getCartModalProductName(product.name) + `</h3>
 
         <p>` + product.size + `</p>
 
@@ -158,6 +158,10 @@ function showCartModal(addedProducts) {
 
       saveCart(cart);
 
+      if (typeof window.refreshCartPage === "function") {
+        window.refreshCartPage();
+      }
+
       quantityText.textContent = addedQuantity;
 
       priceText.textContent =
@@ -201,6 +205,22 @@ function getProductCardName(name) {
     maxLength = 24;
   } else {
     maxLength = 32;
+  }
+
+  if (name.length > maxLength) {
+    return name.substring(0, maxLength) + "...";
+  }
+
+  return name;
+}
+
+function getCartModalProductName(name) {
+  let maxLength;
+
+  if (window.innerWidth <= 600) {
+    maxLength = 22;
+  } else {
+    maxLength = 40;
   }
 
   if (name.length > maxLength) {
@@ -640,7 +660,7 @@ if (recommendProducts) {
       </div>
 
       <button type="button"  class="out-of-stock" disabled >
-        ut of stockOut of stock
+        Out of stock
       </button>
     `;
   }
@@ -655,8 +675,8 @@ if (recommendProducts) {
 
       addProductToCart(product.id, 1);
 
-      if (cartPage) {
-        renderCart();
+      if (typeof window.refreshCartPage === "function") {
+        window.refreshCartPage();
       }
 
       showCartModal([

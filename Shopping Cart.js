@@ -15,7 +15,7 @@ if (cartPage) {
 
   // Render breadcrumb navigation
   renderBreadcrumb([
-    { label: "Home", href: "index.html" },
+    { label: "Home", href: "Index.html" },
     { label: "Shopping Cart" }
   ]);
 
@@ -201,6 +201,8 @@ if (cartPage) {
 
     updateCartSummary(cartProducts);
   }
+
+  window.refreshCartPage = renderCart;
 
   // Checkout button logic
   checkoutBtn.addEventListener("click", () => {
