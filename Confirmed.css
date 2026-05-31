@@ -209,3 +209,301 @@ main.confirmed-page {
 .confirmed-continue-btn:hover {
   background-color: #856858;
 }
+
+.mobile-break {
+  display: none;
+}
+
+@media (max-width: 600px) {
+
+  main.confirmed-page {
+    min-height: 100vh;
+    padding: 25vw 4vw 0;
+    background-color: #FFF7F1;
+  }
+
+  .confirmed-page .breadcrumb {
+    display: none;
+  }
+
+  .mobile-confirmed-title-bar {
+    height: 12vw;
+    margin-left: -4vw;
+    margin-right: -4vw;
+    background-color: #E8D4BF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-confirmed-title-bar .confirmed-title {
+    margin: 0;
+    padding: 0;
+    font-family: "DM Serif Display", serif;
+    font-size: 5vw;
+    font-weight: 500;
+    color: #332D29;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .confirmed-box {
+    position: relative;
+    width: 100%;
+    margin: 7vw auto 0;
+    padding: 0;
+    display: block;
+    background-color: #EEDECF;
+    border-radius: 1vw;
+    overflow: visible;
+  }
+
+  .confirmed-box::before,
+  .confirmed-box::after {
+    content: "";
+    position: absolute;
+    top: 32vw;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    background-color: #FFF7F1;
+    z-index: 5;
+  }
+
+  .confirmed-box::before {
+    left: -3.5vw;
+  }
+
+  .confirmed-box::after {
+    right: -3.5vw;
+  }
+
+  .confirmed-message-box {
+    position: relative;
+    padding: 8vw 5vw 4vw;
+    text-align: center;
+    border-bottom: none;
+  }
+
+  .confirmed-message-box::after {
+    content: "";
+    position: absolute;
+    left: 5vw;
+    right: 5vw;
+    bottom: 1vw;
+    border-bottom: 0.3vw dashed rgba(182, 158, 145, 0.7);
+  }
+
+  .confirmed-message-box h3 {
+    max-width: 72vw;
+    margin: 0 auto 3vw;
+    font-family: "Fraunces", serif;
+    font-size: 5vw;
+    line-height: 1.25;
+    font-weight: 600;
+    color: #332D29;
+  }
+
+  .mobile-break {
+    display: inline;
+  }
+
+  .confirmed-message-box p {
+    margin: 0;
+    font-family: "Kurale", serif;
+    font-size: 3vw;
+    line-height: 1.3;
+    color: #6E5641;
+  }
+
+  .confirmed-left-box {
+    position: relative;
+    padding: 7vw 5vw 4vw;
+    border-right: none;
+    border-bottom: none;
+    display: block;
+  }
+
+  .confirmed-left-box::after {
+    content: "";
+    position: absolute;
+    left: 5vw;
+    right: 5vw;
+    bottom: 0;
+    border-bottom: 0.3vw dashed rgba(182, 158, 145, 0.7);
+  }
+
+  .confirmed-address {
+    display: grid;
+    grid-template-columns: 7vw 1fr;
+    column-gap: 2.5vw;
+    align-items: start;
+  }
+
+  .confirmed-truck {
+    width: 5.2vw;
+    height: 5.2vw;
+    color: #332D29;
+    margin-top: 0.5vw;
+  }
+
+  .confirmed-truck {
+    width: 5.2vw;
+    height: 5.2vw;
+    color: #332D29;
+    margin-top: 0.5vw;
+  }
+
+  .confirmed-truck path,
+  .confirmed-truck line,
+  .confirmed-truck circle,
+  .confirmed-truck polyline {
+    stroke-width: 1.2;
+  }
+
+  #successAddress {
+    max-width: 66vw;
+    font-family: "Neuton", serif;
+    font-size: 3.6vw;
+    line-height: 1.25;
+    color: #4A433D;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .confirmed-user-line {
+    display: flex;
+    gap: 2vw;
+    margin-top: 1.2vw;
+  }
+
+  #successUserName {
+    font-family: "Marcellus", serif;
+    font-size: 3vw;
+    font-weight: 450;
+    color: #70553E;
+    margin: 0;
+  }
+
+  #successPhone {
+    font-family: "Afacad", sans-serif;
+    font-size: 3.2vw;
+    font-weight: 400;
+    color: #70553E;
+    margin: 0;
+  }
+
+  .confirmed-products {
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+    margin: 4vw 0 0 7.5vw;
+  }
+
+  .confirmed-image-list {
+    display: flex;
+    gap: 2vw;
+  }
+
+  .confirmed-image-list img {
+    width: 11vw;
+    height: 11vw;
+    object-fit: cover;
+    border-radius: 0.8vw;
+  }
+
+  .confirmed-item-number {
+    display: flex;
+    align-items: baseline;
+    gap: 1vw;
+    margin: 0;
+  }
+
+  .confirmed-item-number .item-label {
+    font-family: "Fraunces", serif;
+    font-size: 3.4vw;
+    font-weight: 350;
+    color: #4A433D;
+  }
+
+  #successItemCount {
+    font-family: "Afacad", sans-serif;
+    font-size: 3.7vw;
+    font-weight: 400;
+    color: #332D29;
+  }
+
+  .confirmed-right-box {
+    padding: 4vw 5vw 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+  }
+
+  .confirmed-detail-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .confirmed-detail-row h3 {
+    margin: 0;
+    font-family: "Neuton", serif;
+    font-size: 3.7vw;
+    font-weight: 300;
+    color: #332D29;
+  }
+
+  .confirmed-detail-row p {
+    margin: 0;
+    font-family: "Afacad", sans-serif;
+    font-size: 3.7vw;
+    font-weight: 400;
+    color: #332D29;
+  }
+
+  .confirmed-detail-row:last-child {
+    padding-top: 4vw;
+    border-top: 0.3vw dashed rgba(182, 158, 145, 0.7);
+  }
+
+  .confirmed-detail-row:last-child h3 {
+    font-size: 3.8vw;
+    font-weight: 400;
+  }
+
+  .confirmed-detail-row:last-child p {
+    font-size: 4vw;
+    font-weight: 500;
+  }
+
+  .confirmed-continue-btn {
+    width: 100%;
+    height: 9vw;
+    margin-top: 5vw;
+    border-radius: 999vw;
+    background-color: #A88571;
+    color: #FCFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Fraunces", serif;
+    font-size: 4vw;
+    font-weight: 500;
+  }
+
+  .confirmed-continue-btn:hover {
+    background-color: #A88571;
+  }
+
+  .confirmed-page .recommend-section {
+    margin-top: 6vw;
+    margin-left: -4vw;
+    margin-right: -4vw;
+    margin-bottom: 0;
+    padding: 5vw 3vw 6vw;
+    background-color: #EEDECF;
+    border-radius: 3vw 3vw 0 0;
+  }
+}

@@ -54,6 +54,15 @@ if (checkoutPage) {
   // Shipping fee constant
   const SHIPPING_FEE = 11;
 
+  const mobileBackBtn =
+    document.querySelector(".mobile-product-back");
+
+  if (mobileBackBtn) {
+    mobileBackBtn.addEventListener("click", () => {
+      window.history.back();
+    });
+  }
+
   // Checkout data variables
   const checkoutParams =
     new URLSearchParams(window.location.search);

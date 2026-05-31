@@ -13,6 +13,15 @@ if (cartPage) {
 
   const SHIPPING_FEE = 11;
 
+  const mobileBackBtn =
+    document.querySelector(".mobile-product-back");
+
+  if (mobileBackBtn) {
+    mobileBackBtn.addEventListener("click", () => {
+      window.history.back();
+    });
+  }
+
   // Render breadcrumb navigation
   renderBreadcrumb([
     { label: "Home", href: "Index.html" },
@@ -105,6 +114,22 @@ if (cartPage) {
     renderCart();
   }
 
+  function getCartItemName(name) {
+    let maxLength;
+
+    if (window.innerWidth <= 600) {
+      maxLength = 34;
+    } else {
+      maxLength = 40;
+    }
+
+    if (name.length > maxLength) {
+      return name.substring(0, maxLength) + "...";
+    }
+
+    return name;
+  }
+
   // Dynamically generate a cart item
   function renderCartItem(product) {
     const article = document.createElement("article");
@@ -118,7 +143,7 @@ if (cartPage) {
         </figure>
 
         <section class="cart-item-info">
-          <h3>` + product.name + `</h3>
+          <h3>` + getCartItemName(product.name) + `</h3>
           <p class="cart-size">` + product.size + `</p>
 
           <p class="cart-price">
