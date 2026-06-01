@@ -327,12 +327,12 @@ if (productPage) {
       });
     }
     
-    function goToBuyNowCheckout() {
+    function goToBuyNowCheckout(quantity) {
       localStorage.setItem(
         "buyNowItem",
         JSON.stringify({
           id: currentProduct.id,
-          quantity: 1
+          quantity: quantity
         })
       );
 
@@ -475,14 +475,19 @@ if (productPage) {
       if (productBuyNow) {
         productBuyNow.addEventListener("click", event => {
           event.preventDefault();
-          goToBuyNowCheckout();
+
+          const quantity =
+            Number(document.getElementById("quantityNumber").textContent) || 1;
+
+          goToBuyNowCheckout(quantity);
         });
       }
 
       if (mobileBottomBuyBtn) {
         mobileBottomBuyBtn.addEventListener("click", event => {
           event.preventDefault();
-          goToBuyNowCheckout();
+
+          goToBuyNowCheckout(1);
         });
       }
 

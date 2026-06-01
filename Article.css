@@ -1,0 +1,262 @@
+/* ———————————————————— Article Page ———————————————————— */
+.article-page {
+  padding: 9vw 8.8vw 4vw;
+}
+
+/* Page title */
+.article-header {
+  text-align: center;
+  padding: 1.1vw 0 1.6vw;
+}
+
+.article-header h2 {
+  margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.9vw;
+  font-weight: 400;
+  color: #4A433D;
+  text-transform: none;
+}
+
+/* Divider under title */
+.article-line {
+  width: 100%;
+  height: 0.07vw;
+  background-color: rgb(226, 210, 201);
+  margin-bottom: 2.4vw;
+}
+
+.article-content {
+  width: 100%;
+}
+
+/* Main alternating rows */
+.article-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2vw;
+  align-items: center;
+  margin-bottom: 3.2vw;
+}
+
+.article-row-image-left {
+  grid-template-areas: "image text";
+}
+
+.article-row-text-left {
+  grid-template-areas: "text image";
+}
+
+.article-image {
+  grid-area: image;
+  width: 100%;
+  height: 17vw;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.35vw;
+}
+
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-text {
+  grid-area: text;
+  color: #332D29;
+}
+
+.article-text h3 {
+  margin: 0 0 1.4vw;
+  font-family: "Fraunces", serif;
+  font-size: 1.55vw;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #332D29;
+}
+
+.article-text p {
+  margin: 0 0 1.1vw;
+  font-family: "Fraunces", serif;
+  font-size: 1vw;
+  font-weight: 350;
+  line-height: 1.55;
+  color: #332D29;
+}
+
+/* Text-only rows */
+.article-text-right {
+  text-align: right;
+}
+
+.article-ending {
+  margin: 1.8vw 0 2.5vw;
+  text-align: center;
+  color: #332D29;
+}
+
+.article-ending h3 {
+  margin: 0 0 1.3vw;
+  font-family: "Fraunces", serif;
+  font-size: 1.55vw;
+  font-weight: 700;
+  color: #332D29;
+}
+
+.article-ending p {
+  margin: 0 auto;
+  max-width: 68vw;
+  font-family: "Fraunces", serif;
+  font-size: 1vw;
+  font-weight: 350;
+  line-height: 1.55;
+  color: #332D29;
+}
+
+/* About-only contact section */
+.article-contact {
+  padding-top: 2.4vw;
+  margin-top: 1.5vw;
+  border-top: 0.07vw solid rgb(226, 210, 201);
+  text-align: center;
+}
+
+.article-contact h3 {
+  margin: 0 0 1.8vw;
+  font-family: "Fraunces", serif;
+  font-size: 1.55vw;
+  font-weight: 700;
+  color: #332D29;
+}
+
+.article-contact-button {
+  width: 14vw;
+  height: 3vw;
+  margin: 0 auto;
+  border-radius: 999vw;
+  background-color: #A88571;
+  color: #FCFBFB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fraunces", serif;
+  font-size: 0.9vw;
+  text-transform: uppercase;
+}
+
+.article-contact-button:hover {
+  background-color: #9A7A67;
+}
+
+/* Hide contact section by default.
+   Article.js will only show it for About Us. */
+.article-contact.hidden {
+  display: none;
+}
+
+/* ———————————————————— Mobile ———————————————————— */
+@media (max-width: 600px) {
+  .article-page {
+    padding: 25vw 4.5vw 8vw;
+    background-color: #FFF7F1;
+  }
+
+  .article-page .breadcrumb {
+    display: flex;
+    gap: 1.2vw;
+    margin: 3vw 0;
+    font-size: 3vw;
+    color: #4A433D;
+  }
+
+  .article-header {
+    padding: 3vw 0 4vw;
+  }
+
+  .article-header h2 {
+    font-size: 5vw;
+    line-height: 1.15;
+  }
+
+  .article-line {
+    height: 0.25vw;
+    margin-bottom: 5vw;
+  }
+
+  .article-row,
+  .article-row-image-left,
+  .article-row-text-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5vw;
+    margin-bottom: 8vw;
+  }
+
+  .article-text,
+  .article-text-right {
+    order: 1;
+  }
+
+  .article-image {
+    order: 2;
+  }
+
+  .article-image {
+    width: 100%;
+    height: 48vw;
+    border-radius: 2vw;
+  }
+
+  .article-text,
+  .article-text-right {
+    text-align: left;
+  }
+
+  .article-text h3 {
+    margin-bottom: 3vw;
+    font-size: 4.4vw;
+    line-height: 1.2;
+  }
+
+  .article-text p {
+    margin-bottom: 3vw;
+    font-size: 3.4vw;
+    line-height: 1.55;
+  }
+
+  .article-ending {
+    margin: 4vw 0 7vw;
+    text-align: left;
+  }
+
+  .article-ending h3 {
+    font-size: 4.4vw;
+    line-height: 1.2;
+  }
+
+  .article-ending p {
+    max-width: 100%;
+    font-size: 3.4vw;
+    line-height: 1.55;
+  }
+
+  .article-contact {
+    padding-top: 6vw;
+    margin-top: 5vw;
+    border-top: 0.25vw solid rgb(226, 210, 201);
+  }
+
+  .article-contact h3 {
+    margin-bottom: 4vw;
+    font-size: 4.2vw;
+    line-height: 1.25;
+  }
+
+  .article-contact-button {
+    width: 42vw;
+    height: 10vw;
+    border-radius: 999vw;
+    font-size: 3vw;
+  }
+}

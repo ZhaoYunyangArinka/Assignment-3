@@ -52,12 +52,12 @@
 
             <ul class="nav-links">
                 <li class="shop-nav-item">
-                    <a href="Products.html" class="shop-trigger">
+                    <a href="#" class="shop-trigger">
                         Shop
                     </a>
                 </li>
                 <li><a href="Blog.html">Blog</a></li>
-                <li><a href="About.html">About Us</a></li>
+                <li><a href="Article.html?type=about">About Us</a></li>
                 <li><a href="Contact.html">Contact Us</a></li>
             </ul>
 
@@ -154,48 +154,51 @@
 
         <section class="shop-menu">
             <article class="shop-menu-column">
-                <a href="Products.html" class="menu-main-link">Shop All</a>
+                <a href="Products.html?collection=all" class="menu-main-link">Shop All</a>
             </article>
 
             <article class="shop-menu-column">
-                <a href="Products.html" class="menu-main-link">Best Sellers</a>
+                <a href="Products.html?collection=best-sellers" class="menu-main-link">Best Sellers</a>
             </article>
 
             <article class="shop-menu-column">
-                <a href="Products.html" class="menu-main-link">By Brand</a>
-                <a href="Beach.html">Beach</a>
-                <a href="MAN.html">Man</a>
-                <a href="Ossential.html">O'ssential</a>
+                <span class="menu-main-link">By Brand</span>
+                <a href="Products.html?brand=Beach">Beach</a>
+                <a href="Products.html?brand=MAN">Man</a>
+                <a href="Products.html?brand=O'ssential">O'ssential</a>
             </article>
 
             <article class="shop-menu-column">
-                <a href="Products.html" class="menu-main-link">By Type</a>
-                <a href="Shampoo.html">Shampoo</a>
-                <a href="Conditioner.html">Conditioner</a>
-                <a href="Styling.html">Styling</a>
-                <a href="Treatments.html">Treatments</a>
-                <a href="Tools.html">Hair Tools</a>
+                <span class="menu-main-link">By Type</span>
+                <a href="Products.html?category=Shampoo">Shampoo</a>
+                <a href="Products.html?category=Conditioner">Conditioner</a>
+                <a href="Products.html?category=Styling">Styling</a>
+                <a href="Products.html?category=Treatments">Treatments</a>
+                <a href="Products.html?category=Hair Tools">Hair Tools</a>
             </article>
         </section>
 
         <section class="mobile-menu">
             <button type="button" class="mobile-menu-link mobile-shop-toggle">
                 <span>Shop</span>
-                <svg class="mobile-arrow down" viewBox="0 0 24 24">
-                    <path d="M6 9L12 15L18 9" />
+
+                <svg class="mobile-arrow right" viewBox="0 0 24 24">
+                    <path d="M9 5L16 12L9 19" />
                 </svg>
             </button>
 
             <div class="mobile-submenu mobile-shop-submenu">
-                <a href="Products.html">
+                <a href="Products.html?collection=all" class="menu-main-link">
                     Shop All
+
                     <svg class="mobile-arrow right" viewBox="0 0 24 24">
                         <path d="M9 5L16 12L9 19" />
                     </svg>
                 </a>
 
-                <a href="Products.html">
+                <a href="Products.html?collection=best-sellers" class="menu-main-link">
                     Best Sellers
+
                     <svg class="mobile-arrow right" viewBox="0 0 24 24">
                         <path d="M9 5L16 12L9 19" />
                     </svg>
@@ -204,28 +207,31 @@
                 <button type="button" class="mobile-menu-link mobile-brand-toggle">
                     <span>By Brand</span>
 
-                    <svg class="mobile-arrow down" viewBox="0 0 24 24">
-                        <path d="M6 9L12 15L18 9" />
+                    <svg class="mobile-arrow right" viewBox="0 0 24 24">
+                        <path d="M9 5L16 12L9 19" />
                     </svg>
                 </button>
 
                 <div class="mobile-submenu mobile-brand-submenu">
-                    <a href="Beach.html">
+                    <a href="Products.html?brand=Beach">
                         Beach
+
                         <svg class="mobile-arrow right" viewBox="0 0 24 24">
                             <path d="M9 5L16 12L9 19" />
                         </svg>
                     </a>
 
-                    <a href="MAN.html">
+                    <a href="Products.html?brand=MAN">
                         MAN
+
                         <svg class="mobile-arrow right" viewBox="0 0 24 24">
                             <path d="M9 5L16 12L9 19" />
                         </svg>
                     </a>
 
-                    <a href="Ossential.html">
-                        O’ssential
+                    <a href="Products.html?brand=O'ssential">
+                        O'ssential
+
                         <svg class="mobile-arrow right" viewBox="0 0 24 24">
                             <path d="M9 5L16 12L9 19" />
                         </svg>
@@ -235,42 +241,47 @@
                 <button type="button" class="mobile-menu-link mobile-type-toggle">
                     <span>By Type</span>
 
-                    <svg class="mobile-arrow down" viewBox="0 0 24 24">
-                        <path d="M6 9L12 15L18 9" />
+                    <svg class="mobile-arrow right" viewBox="0 0 24 24">
+                        <path d="M9 5L16 12L9 19" />
                     </svg>
                 </button>
 
                 <div class="mobile-submenu mobile-type-submenu">
-                    <a href="Shampoo.html">
+                    <a href="Products.html?category=Shampoo">
                         Shampoo
+
                         <svg class="mobile-arrow right" viewBox="0 0 24 24">
                             <path d="M9 5L16 12L9 19" />
                         </svg>
                     </a>
 
-                    <a href="Conditioner.html">
+                    <a href="Products.html?category=Conditioner">
                         Conditioner
+
                         <svg class="mobile-arrow right" viewBox="0 0 24 24">
                             <path d="M9 5L16 12L9 19" />
                         </svg>
                     </a>
 
-                    <a href="Styling.html">
+                    <a href="Products.html?category=Styling">
                         Styling
+
                         <svg class="mobile-arrow right" viewBox="0 0 24 24">
                             <path d="M9 5L16 12L9 19" />
                         </svg>
                     </a>
 
-                    <a href="Treatments.html">
+                    <a href="Products.html?category=Treatments">
                         Treatments
+
                         <svg class="mobile-arrow right" viewBox="0 0 24 24">
                             <path d="M9 5L16 12L9 19" />
                         </svg>
                     </a>
 
-                    <a href="Tools.html">
+                    <a href="Products.html?category=Hair Tools">
                         Hair Tools
+
                         <svg class="mobile-arrow right" viewBox="0 0 24 24">
                             <path d="M9 5L16 12L9 19" />
                         </svg>
@@ -280,13 +291,15 @@
 
             <a href="Blog.html" class="mobile-menu-link">
                 Blog
+
                 <svg class="mobile-arrow right" viewBox="0 0 24 24">
                     <path d="M9 5L16 12L9 19" />
                 </svg>
             </a>
 
-            <a href="About.html" class="mobile-menu-link">
+            <a href="Article.html?type=about" class="mobile-menu-link">
                 About Us
+
                 <svg class="mobile-arrow right" viewBox="0 0 24 24">
                     <path d="M9 5L16 12L9 19" />
                 </svg>
@@ -294,6 +307,7 @@
 
             <a href="Contact.html" class="mobile-menu-link">
                 Contact Us
+                
                 <svg class="mobile-arrow right" viewBox="0 0 24 24">
                     <path d="M9 5L16 12L9 19" />
                 </svg>
@@ -435,29 +449,29 @@
     </main>
 
     <footer>
-        <section class="footer-column" aria-labelledby="footer-shop">
+        <section class="footer-column">
             <h4>Shop</h4>
             <ul>
-                <li><a href="#">Shampoo</a></li>
-                <li><a href="#">Conditioner</a></li>
-                <li><a href="#">Styling</a></li>
-                <li><a href="#">Treatments</a></li>
-                <li><a href="#">Hair Tools</a></li>
+                <li><a href="Products.html?category=Shampoo">Shampoo</a></li>
+                <li><a href="Products.html?category=Conditioner">Conditioner</a></li>
+                <li><a href="Products.html?category=Styling">Styling</a></li>
+                <li><a href="Products.html?category=Treatments">Treatments</a></li>
+                <li><a href="Products.html?category=Hair Tools">Hair Tools</a></li>
             </ul>
         </section>
 
-        <section class="footer-column" aria-labelledby="footer-learn">
+        <section class="footer-column">
             <h4>Learn</h4>
             <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="Article.html?type=about">About Us</a></li>
+                <li><a href="Blog.html">Blog</a></li>
             </ul>
         </section>
 
-        <section class="footer-column" aria-labelledby="footer-care">
+        <section class="footer-column">
             <h4>Customer Care</h4>
             <ul>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
             </ul>
         </section>
 
@@ -488,7 +502,7 @@
 
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="Products.html?category=Shampoo">
                             <span>Shampoo</span>
 
                             <svg viewBox="0 0 24 24">
@@ -498,7 +512,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="Products.html?category=Conditioner">
                             <span>Conditioner</span>
 
                             <svg viewBox="0 0 24 24">
@@ -508,7 +522,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="Products.html?category=Styling">
                             <span>Styling</span>
 
                             <svg viewBox="0 0 24 24">
@@ -518,7 +532,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="Products.html?category=Treatments">
                             <span>Treatments</span>
 
                             <svg viewBox="0 0 24 24">
@@ -528,7 +542,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="Products.html?category=Hair Tools">
                             <span>Hair Tools</span>
 
                             <svg viewBox="0 0 24 24">
@@ -550,7 +564,7 @@
 
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="Article.html?type=about">
                             <span>About Us</span>
 
                             <svg viewBox="0 0 24 24">
@@ -560,7 +574,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="Blog.html">
                             <span>Blog</span>
 
                             <svg viewBox="0 0 24 24">
@@ -582,7 +596,7 @@
 
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="Contact.html">
                             <span>Contact Us</span>
 
                             <svg viewBox="0 0 24 24">

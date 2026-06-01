@@ -1,0 +1,109 @@
+/* ———————————————————— Products Page ———————————————————— */
+.product-list-page {
+  padding: 9vw 8.8vw 4vw;
+}
+
+/* Page title */
+.product-list-header {
+  text-align: center;
+  padding: 1.1vw 0 1.6vw;
+}
+
+.product-list-header h2 {
+  margin: 0;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.9vw;
+  font-weight: 400;
+  color: #4A433D;
+  text-transform: uppercase;
+}
+
+/* Divider under title */
+.product-list-line {
+  width: 100%;
+  height: 0.07vw;
+  background-color: rgb(226, 210, 201);
+  margin-bottom: 1.5vw;
+}
+
+/* Sort area */
+.product-list-control {
+  margin-bottom: 2.2vw;
+}
+
+/* Reuse Search Result product grid */
+.product-list-page .product-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5vw;
+  row-gap: 4vw;
+}
+
+/* Make product cards use the same style as search result */
+.product-list-page .product-card {
+  width: 100%;
+}
+
+/* No result message */
+.product-list-page .no-results-message {
+  display: none;
+  font-family: "Fraunces", serif;
+  font-size: 1.35vw;
+  font-weight: 350;
+  color: #4A433D;
+  margin: 4vw auto 0.5vw;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 40vw;
+}
+
+.product-list-page .no-results-message.active {
+  display: block;
+}
+
+/* ———————————————————— Mobile ———————————————————— */
+@media (max-width: 600px) {
+  .product-list-page {
+    padding: 25vw 4vw 8vw;
+    background-color: #FFF7F1;
+  }
+
+  .product-list-page .breadcrumb {
+    display: flex;
+    gap: 1.2vw;
+    margin: 3vw 0;
+    font-size: 3vw;
+    color: #4A433D;
+  }
+
+  .product-list-header {
+    padding: 3vw 0 4vw;
+  }
+
+  .product-list-header h2 {
+    font-size: 5vw;
+    line-height: 1.1;
+  }
+
+  .product-list-line {
+    height: 0.25vw;
+    margin-bottom: 5vw;
+  }
+
+  .product-list-control {
+    margin-bottom: 5vw;
+  }
+
+  .product-list-page .product-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5vw 4vw;
+  }
+
+  .product-list-page .no-results-message {
+    max-width: 80vw;
+    margin-top: 10vw;
+    font-size: 4vw;
+    line-height: 1.5;
+  }
+}

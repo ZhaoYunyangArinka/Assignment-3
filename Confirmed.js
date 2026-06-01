@@ -9,6 +9,10 @@ if (confirmedPage) {
   const confirmedCart =
     JSON.parse(localStorage.getItem("lastOrderCart")) || getCart();
 
+  if (!savedCheckoutInfo || confirmedCart.length === 0) {
+    window.location.href = "Shopping Cart.html";
+  }
+  
   const successAddress =
     document.getElementById("successAddress");
 

@@ -73,6 +73,11 @@ if (checkoutPage) {
   let checkoutProducts =
     getCheckoutProducts();
 
+  if (checkoutProducts.length === 0) {
+    alert("Your cart is empty. Please add a product before checkout.");
+    window.location.href = "Shopping Cart.html";
+  }
+
   let expandedQtyControl = null;
   let addOrderSelected = false;
   let currentCountry = countryInput.value;
@@ -107,7 +112,7 @@ if (checkoutPage) {
         checkoutItems = [
           {
             id: buyNowItem.id,
-            quantity: 1
+            quantity: buyNowItem.quantity || 1
           }
         ];
       }
@@ -264,7 +269,7 @@ if (checkoutPage) {
     const field = input.closest(".form-field");
 
     // Stop if parent field does not exist
-    if (input === null) return;
+    if (field === null) return;
 
     // Add "is-filled" class when input has content
     if (input.value.trim() !== "") {
@@ -929,7 +934,7 @@ if (checkoutPage) {
       return item.id === productId;
     });
 
-    if (product===null) return;
+    if (!product) return;
 
     // Change quantity controller back to simple "x quantity" text
     const qtyDisplay = document.createElement("span");

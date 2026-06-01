@@ -168,7 +168,7 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
     article.classList.add("blog-card");
 
     article.innerHTML = `
-      <a href="#">
+      <a href="Article.html?id=` + blog.id + `&from=search">
         <figure>
           <img src="` + blog.image + `" alt="` + blog.title + `">
 
