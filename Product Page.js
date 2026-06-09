@@ -20,6 +20,7 @@ if (productPage) {
     // Get breadcrumb source and trail data
     const fromPage = params.get("from") || "products";
     const trailParam = params.get("trail");
+    const searchKeyword = params.get("search");
 
     const trailIds =
       trailParam ? trailParam.split(",") : [];
@@ -30,10 +31,17 @@ if (productPage) {
 
     // Render breadcrumb based on previous page
     if (fromPage === "search") {
+      let searchResultHref = "Search Result.html";
+
+      if (searchKeyword) {
+        searchResultHref =
+          "Search Result.html?search=" +
+          encodeURIComponent(searchKeyword);
+      }
 
       renderBreadcrumb([
         { label: "Home", href: "index.html" },
-        { label: "Search Results", href: "Search Result.html" },
+        { label: "Search Results", href: searchResultHref },
         { label: currentProduct.name }
       ]);
 

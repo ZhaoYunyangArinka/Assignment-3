@@ -38,7 +38,7 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
 
   // —————————— Breadcrumb ——————————
   renderBreadcrumb([
-    { label: "Home", href: "Index.html" },
+    { label: "Home", href: "index.html" },
     { label: "Search Results" }
   ]);
 
@@ -66,7 +66,13 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
 
   // Create product page link from search result
   function getProductLink(product) {
-    return "Product Page.html?id=" + product.id + "&from=search";
+    return (
+      "Product Page.html?id=" +
+      product.id +
+      "&from=search" +
+      "&search=" +
+      encodeURIComponent(searchKeyword)
+    );
   }
 
   // Generate a product card dynamically
