@@ -24,7 +24,7 @@ if (cartPage) {
 
   // Render breadcrumb navigation
   renderBreadcrumb([
-    { label: "Home", href: "Index.html" },
+    { label: "Home", href: "index.html" },
     { label: "Shopping Cart" }
   ]);
 

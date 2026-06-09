@@ -31,13 +31,13 @@ if (articlePage) {
 
     if (fromPage === "search") {
       breadcrumbItems = [
-        { label: "Home", href: "Index.html" },
+        { label: "Home", href: "index.html" },
         { label: "Search Results", href: "Search Result.html" },
         { label: title }
       ];
     } else {
       breadcrumbItems = [
-        { label: "Home", href: "Index.html" },
+        { label: "Home", href: "index.html" },
         { label: "Blog", href: "Blog.html" },
         { label: title }
       ];
@@ -48,7 +48,7 @@ if (articlePage) {
     title = "About Us";
 
     breadcrumbItems = [
-      { label: "Home", href: "Index.html" },
+      { label: "Home", href: "index.html" },
       { label: "About Us" }
     ];
   }

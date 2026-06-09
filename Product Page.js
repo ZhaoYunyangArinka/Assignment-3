@@ -32,7 +32,7 @@ if (productPage) {
     if (fromPage === "search") {
 
       renderBreadcrumb([
-        { label: "Home", href: "Index.html" },
+        { label: "Home", href: "index.html" },
         { label: "Search Results", href: "Search Result.html" },
         { label: currentProduct.name }
       ]);
@@ -40,14 +40,14 @@ if (productPage) {
     } else if (fromPage === "home") {
 
       renderBreadcrumb([
-        { label: "Home", href: "Index.html" },
+        { label: "Home", href: "index.html" },
         { label: currentProduct.name }
       ]);
 
     } else if (fromPage === "cart") {
 
       renderBreadcrumb([
-        { label: "Home", href: "Index.html" },
+        { label: "Home", href: "index.html" },
         { label: "Shopping Cart", href: "Shopping Cart.html" },
         { label: currentProduct.name }
       ]);
@@ -55,7 +55,7 @@ if (productPage) {
     } else if (fromPage === "product") {
 
       const breadcrumbItems = [
-        { label: "Home", href: "Index.html" },
+        { label: "Home", href: "index.html" },
       ];
 
       // Add previous related products into breadcrumb
@@ -81,7 +81,7 @@ if (productPage) {
     } else {
 
       renderBreadcrumb([
-        { label: "Home", href: "Index.html" },
+        { label: "Home", href: "index.html" },
         { label: "Products", href: "Products.html" },
         { label: currentProduct.name }
       ]);

@@ -51,7 +51,7 @@ if (productListPage) {
     productListTitle.textContent = title;
 
     renderBreadcrumb([
-      { label: "Home", href: "Index.html" },
+      { label: "Home", href: "index.html" },
       { label: title }
     ]);
   }

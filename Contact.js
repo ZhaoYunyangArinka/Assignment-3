@@ -14,7 +14,7 @@ if (contactPage) {
 
   // Breadcrumb
   renderBreadcrumb([
-    { label: "Home", href: "Index.html" },
+    { label: "Home", href: "index.html" },
     { label: "Contact Us" }
   ]);
 
