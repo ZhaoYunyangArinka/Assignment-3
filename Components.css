@@ -539,22 +539,22 @@ header.shop-menu-active nav {
 }
 
 .continue-shopping {
-  background-color: #EFDFD4;
-  color: #332D29;
+  background-color: #A88571;
+  color: #FCFBFB;
   cursor: pointer;
 }
 
 .continue-shopping:hover {
-  background-color: #E2C4AD;
+  background-color: #856858;
 }
 
 .view-cart {
-  background-color: #A88571;
-  color: #FCFBFB;
+  background-color: #EFDFD4;
+  color: #332D29;
 }
 
 .view-cart:hover {
-  background-color: #856858;
+  background-color: #E2C4AD;
 }
 
 /* ———————————————————— Product Card ———————————————————— */

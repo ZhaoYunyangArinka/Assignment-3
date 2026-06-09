@@ -347,13 +347,6 @@ main.confirmed-page {
     margin-top: 0.5vw;
   }
 
-  .confirmed-truck {
-    width: 5.2vw;
-    height: 5.2vw;
-    color: #332D29;
-    margin-top: 0.5vw;
-  }
-
   .confirmed-truck path,
   .confirmed-truck line,
   .confirmed-truck circle,

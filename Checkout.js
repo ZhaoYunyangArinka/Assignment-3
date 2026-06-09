@@ -45,6 +45,21 @@ if (checkoutPage) {
   const postcodeInput = document.getElementById("postcodeInput");
   const phoneInput = document.getElementById("phoneInput");
 
+  const checkoutAddressBox =
+    document.querySelector(".checkout-address-box");
+
+  const checkoutAddressEditBtn =
+    document.getElementById("checkoutAddressEditBtn");
+
+  const checkoutSummaryAddress =
+    document.getElementById("checkoutSummaryAddress");
+
+  const checkoutSummaryUser =
+    document.getElementById("checkoutSummaryUser");
+
+  const checkoutSummaryPhone =
+    document.getElementById("checkoutSummaryPhone");
+
   // Card payment inputs
   const cardNumberInput = document.getElementById("cardNumberInput");
   const expiryInput = document.getElementById("expiryInput");
@@ -222,6 +237,9 @@ if (checkoutPage) {
       field.classList.remove("is-focused");
     }
 
+    // Update collapsed address summary
+    updateCheckoutAddressSummary();
+
     // Close dropdown after selection
     closeAllCustomSelects();
   }
@@ -357,6 +375,86 @@ if (checkoutPage) {
     }
   }
 
+  function updateCheckoutAddressSummary() {
+    if (
+      checkoutSummaryAddress === null ||
+      checkoutSummaryUser === null ||
+      checkoutSummaryPhone === null
+    ) {
+      return;
+    }
+
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
+
+    const unit = unitInput.value.trim();
+    const streetNumber = streetNumberInput.value.trim();
+    const streetName = streetNameInput.value.trim();
+    const suburb = suburbInput.value.trim();
+    const postcode = postcodeInput.value.trim();
+    const country = countryInput.value.trim();
+
+    let state = "";
+
+    if (countryInput.value === "Australia") {
+      state = stateInput.value.trim();
+    } else {
+      state = stateTextInput.value.trim();
+    }
+
+    const phonePrefix = countryPhonePrefixes[countryInput.value] || "";
+    const phone = phoneInput.value.trim();
+
+    let streetLine = "";
+
+    if (unit !== "" && streetNumber !== "" && streetName !== "") {
+      streetLine = unit + ", " + streetNumber + " " + streetName;
+    } else if (streetNumber !== "" && streetName !== "") {
+      streetLine = streetNumber + " " + streetName;
+    } else if (streetName !== "") {
+      streetLine = streetName;
+    }
+
+    const addressParts = [];
+
+    if (streetLine !== "") {
+      addressParts.push(streetLine);
+    }
+
+    if (suburb !== "") {
+      addressParts.push(suburb);
+    }
+
+    if (state !== "" || postcode !== "") {
+      addressParts.push((state + " " + postcode).trim());
+    }
+
+    if (country !== "") {
+      addressParts.push(country);
+    }
+
+    if (addressParts.length > 0) {
+      checkoutSummaryAddress.textContent = addressParts.join(", ");
+    } else {
+      checkoutSummaryAddress.textContent =
+        "The University of Melbourne, Victoria 3010 Australia";
+    }
+
+    const userName = (firstName + " " + lastName).trim();
+
+    if (userName !== "") {
+      checkoutSummaryUser.textContent = userName;
+    } else {
+      checkoutSummaryUser.textContent = "User Name";
+    }
+
+    if (phone !== "") {
+      checkoutSummaryPhone.textContent = phonePrefix + " " + phone;
+    } else {
+      checkoutSummaryPhone.textContent = "+61 411234567";
+    }
+  }
+
   // Clear address fields when country changes
   function clearAddressFields() {
     const fieldsToClear = [
@@ -452,6 +550,7 @@ if (checkoutPage) {
     if (!field) return;
 
     field.classList.remove("has-error");
+    field.classList.remove("field-error-shake");
 
     const errorMessage = field.querySelector(".error-message");
 
@@ -881,6 +980,52 @@ if (checkoutPage) {
     if (input === cardNameInput) validateCardName(false);
   }
 
+  function validateAddressFormOnly() {
+    let isValid = true;
+
+    if (validateFirstName(true) === false) isValid = false;
+    if (validateLastName(true) === false) isValid = false;
+    if (validateRequired(unitInput, true, "Please enter unit") === false) isValid = false;
+    if (validateNumberField(streetNumberInput, true, "Please enter street number") === false) isValid = false;
+    if (validateTextNoNumber(streetNameInput, true, "Please enter street name") === false) isValid = false;
+    if (validateTextNoNumber(suburbInput, true, "Please enter suburb") === false) isValid = false;
+    if (validateNumberField(postcodeInput, true, "Please enter postcode") === false) isValid = false;
+    if (validatePhone(true) === false) isValid = false;
+
+    if (countryInput.value === "Australia") {
+      if (validateRequired(stateInput, true, "Please select state") === false) {
+        isValid = false;
+      }
+    } else {
+      if (validateTextNoNumber(stateTextInput, true, "Please enter state") === false) {
+        isValid = false;
+      }
+    }
+
+    return isValid;
+  }
+
+  function shakeErrorFields(container) {
+    const searchArea =
+      container || document;
+
+    const errorFields =
+      searchArea.querySelectorAll(".form-field.has-error");
+
+    if (errorFields.length === 0) return;
+
+    errorFields.forEach(field => {
+      field.classList.remove("field-error-shake");
+    });
+
+    // Force animation restart
+    void searchArea.offsetWidth;
+
+    errorFields.forEach(field => {
+      field.classList.add("field-error-shake");
+    });
+  }
+
   // Validate all checkout fields when Pay button is clicked
   function validateCheckoutForm() {
     let isValid = true;
@@ -1228,6 +1373,25 @@ if (checkoutPage) {
     const isValid = validateCheckoutForm();
 
     if (isValid === false) {
+      const firstAddressError =
+        checkoutAddressBox.querySelector(".form-field.has-error");
+
+      if (firstAddressError) {
+        checkoutAddressBox.classList.add("editing");
+        checkoutAddressEditBtn.textContent = "Done";
+      }
+
+      requestAnimationFrame(() => {
+        shakeErrorFields(checkoutPage);
+
+        const firstErrorInput =
+          checkoutPage.querySelector(".form-field.has-error input");
+
+        if (firstErrorInput) {
+          firstErrorInput.focus();
+        }
+      });
+
       return;
     }
 
@@ -1320,8 +1484,67 @@ if (checkoutPage) {
   });
 
   // Initialize checkout page
+  if (checkoutAddressEditBtn && checkoutAddressBox) {
+    checkoutAddressEditBtn.addEventListener("click", () => {
+      const isEditing =
+        checkoutAddressBox.classList.contains("editing");
+
+      // Open form
+      if (isEditing === false) {
+        checkoutAddressBox.classList.add("editing");
+        checkoutAddressEditBtn.textContent = "Done";
+        return;
+      }
+
+      // When clicking Done, validate address first
+      const isAddressValid =
+        validateAddressFormOnly();
+
+      if (isAddressValid === false) {
+        checkoutAddressBox.classList.add("editing");
+        checkoutAddressEditBtn.textContent = "Done";
+
+        shakeErrorFields(checkoutAddressBox);
+
+        const firstErrorField =
+          checkoutAddressBox.querySelector(".form-field.has-error input");
+
+        if (firstErrorField) {
+          firstErrorField.focus();
+        }
+
+        return;
+      }
+
+      // Only collapse when address is valid
+      updateCheckoutAddressSummary();
+      checkoutAddressBox.classList.remove("editing");
+      checkoutAddressEditBtn.textContent = "Edit";
+    });
+  }
+
+  [
+    firstNameInput,
+    lastNameInput,
+    unitInput,
+    streetNumberInput,
+    streetNameInput,
+    suburbInput,
+    stateInput,
+    stateTextInput,
+    postcodeInput,
+    phoneInput,
+    countryInput
+  ].forEach(input => {
+    if (input) {
+      input.addEventListener("input", updateCheckoutAddressSummary);
+      input.addEventListener("change", updateCheckoutAddressSummary);
+    }
+  });
+
   updateCountryFields();
   updatePhonePrefix();
+  updateCheckoutAddressSummary();
   setInitialPayment();
   renderCheckoutItems();
   renderInitialAddOrder();

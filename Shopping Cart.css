@@ -212,19 +212,27 @@ main.cart-page {
   line-height: 1;
 }
 
-.summary-address span:nth-of-type(1) {
-  font-family: "Marcellus", serif;
-  font-size: 0.9vw;
+.summary-user-line {
   grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
   margin-top: 0.6vw;
+  min-width: 0;
 }
 
-.summary-address span:nth-of-type(2) {
+.summary-user-line span:first-child {
+  font-family: "Marcellus", serif;
+  font-size: 0.9vw;
+  color: #70553E;
+  white-space: nowrap;
+}
+
+.summary-user-line span:last-child {
   font-family: "Afacad", serif;
   font-size: 0.95vw;
-  grid-column: 2;
-  margin-left: 5vw;
-  margin-top: -0.9vw;
+  color: #70553E;
+  white-space: nowrap;
 }
 
 .edit-address {

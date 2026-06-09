@@ -52,7 +52,7 @@
 
             <ul class="nav-links">
                 <li class="shop-nav-item">
-                    <a href="#" class="shop-trigger">
+                    <a href="Products.html?collection=all" class="shop-trigger">
                         Shop
                     </a>
                 </li>
@@ -333,9 +333,37 @@
         <section class="checkout-layout">
             <section class="checkout-left">
                 <section class="checkout-address-box">
-                    <h3>Shipping Address</h3>
+                    <h3 class="checkout-address-form-title">Shipping Address</h3>
 
                     <p class="address-note">Delivery at home or a desired address.</p>
+
+                    <section class="checkout-address-summary">
+                        <svg viewBox="0 0 24 24" class="checkout-location-pin">
+                            <path
+                                d="M12 21C12 21 5 14.8 5 9.5C5 5.6 8.1 2.5 12 2.5C15.9 2.5 19 5.6 19 9.5C19 14.8 12 21 12 21Z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linejoin="round"
+                            />
+                            <circle cx="12" cy="9.5" r="2" fill="currentColor" />
+                        </svg>
+
+                        <section class="checkout-address-summary-info">
+                            <p id="checkoutSummaryAddress">
+                                0916, 136 Leicester St, Melbourne, Victoria 3053 Australia
+                            </p>
+
+                            <p class="checkout-summary-user-line">
+                                <span id="checkoutSummaryUser">YUNYANG ZHAO</span>
+                                <span id="checkoutSummaryPhone">+61 411234567</span>
+                            </p>
+                        </section>
+
+                        <button type="button" class="checkout-address-edit" id="checkoutAddressEditBtn">
+                            Edit
+                        </button>
+                    </section>
 
                     <form class="checkout-address-form" id="checkoutAddressForm" novalidate>
                         <label class="form-field full custom-select-field">
@@ -431,7 +459,7 @@
                                     </svg>
                                 </button>
 
-                                <ul class="custom-select-options" id="stateOptions" >
+                                <ul class="custom-select-options" id="stateOptions">
                                     <li data-value="Australian Capital Territory">Australian Capital Territory</li>
                                     <li data-value="New South Wales">New South Wales</li>
                                     <li data-value="Northern Territory">Northern Territory</li>

@@ -474,14 +474,6 @@ if (resultTabs.length && resultPanels.length && sortBox && sortBtn && sortOption
     sortBox.classList.remove("active");
   });
 
-  const viewToggle = document.getElementById("viewToggle");
-
-  if (viewToggle) {
-    viewToggle.addEventListener("click", () => {
-      productSection.classList.toggle("list-view");
-    });
-  }
-
   // Start with product results tab
   switchResultTab("productResults");
 }
